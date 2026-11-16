@@ -1,11 +1,11 @@
 .venv*/
 __pycache__/
-modelos/
-dados/
-amostras/
-triagem/
-v2/
-ouvir*/
+/modelos/
+/dados/
+/amostras/
+/triagem/
+/v2/
+/ouvir*/
 *.wav
 !referencias/*.wav
 *.mp3
