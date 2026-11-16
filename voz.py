@@ -78,8 +78,9 @@ def aparar(a, limiar=0.003, sr=24000):
     return a[max(idx[0] - int(0.04 * sr), 0): idx[-1] + int(0.06 * sr)] if len(idx) else a
 
 
-def pos_producao(entrada, saida, voz_grave=True):
-    pp = CONFIG["pos_producao"]
+def pos_producao(entrada, saida, voz_grave=True, pp=None):
+    # pp: ajustes de um preset; o que não vier usa o config.json (padrão da v1)
+    pp = {**CONFIG["pos_producao"], **(pp or {})}
     filtros = [
         f"highpass=f={pp['passa_alta_hz']}",                        # tira ronco/sub-grave
         # corpo/calor: região da F0 masculina (85–180 Hz) e 1º harmônico

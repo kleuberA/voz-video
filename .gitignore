@@ -9,3 +9,7 @@ ouvir*/
 *.wav
 !referencias/*.wav
 *.mp3
+
+# versões aprovadas ficam guardadas
+!versoes/**/*.mp3
+!versoes/**/*.flac

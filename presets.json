@@ -1,0 +1,15 @@
+{
+  "padrao": "v1",
+  "presets": {
+    "v1": {
+      "descricao": "Versão 01 aprovada em 16/11/2026: voz clonada CV-131. CONGELADA, não alterar.",
+      "referencia": "referencias/cv_131.wav",
+      "tentativas": 3,
+      "exagero": 0.5,
+      "cfg": 0.4,
+      "temperatura": 0.75,
+      "pausa_ms": 280,
+      "corte": "legado"
+    }
+  }
+}
