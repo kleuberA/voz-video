@@ -1,0 +1,20 @@
+{
+  "preset": "v2",
+  "config": {
+    "descricao": "Refinada: referência estendida do mesmo narrador (131+132, 7,6 s) e corte corrigido. Metade das pausas travadas.",
+    "referencia": "referencias/cv_131_longa.wav",
+    "tentativas": 5,
+    "exagero": 0.5,
+    "cfg": 0.4,
+    "temperatura": 0.75,
+    "pausa_ms": 280,
+    "corte": "conservador"
+  },
+  "verificacao": [
+    {
+      "paragrafo": 1,
+      "erro": 0.074,
+      "ouvido": "É exatamente isso que você treina no Studa Legis.  O app pega o texto oficial e troca o que as bancas trocam, prazos, frações, poderá e deverá."
+    }
+  ]
+}

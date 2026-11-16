@@ -1,0 +1,20 @@
+{
+  "preset": "v2",
+  "config": {
+    "descricao": "Refinada: referência estendida do mesmo narrador (131+132, 7,6 s) e corte corrigido. Metade das pausas travadas.",
+    "referencia": "referencias/cv_131_longa.wav",
+    "tentativas": 3,
+    "exagero": 0.5,
+    "cfg": 0.4,
+    "temperatura": 0.75,
+    "pausa_ms": 280,
+    "corte": "conservador"
+  },
+  "verificacao": [
+    {
+      "paragrafo": 1,
+      "erro": 0.053,
+      "ouvido": "está na Constituição, artigo 86, enquanto não houver sentença  condenatória nas infrações comuns, ele não está sujeito à prisão."
+    }
+  ]
+}
