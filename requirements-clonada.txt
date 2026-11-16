@@ -1,0 +1,7 @@
+# Ambiente da voz clonada (Python 3.11): Chatterbox Multilingual (licença MIT)
+chatterbox-tts
+setuptools<81
+faster-whisper
+jiwer
+librosa
+pyloudnorm

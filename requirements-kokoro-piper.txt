@@ -1,0 +1,13 @@
+# Ambiente principal (Python 3.12): Kokoro, Piper, verificação e avaliação
+torch
+kokoro
+piper-tts
+soundfile
+numpy
+librosa
+faster-whisper
+jiwer
+pyloudnorm
+pandas
+pyarrow
+transformers

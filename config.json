@@ -1,0 +1,16 @@
+{
+  "voz_padrao": {
+    "motor": "kokoro",
+    "voz": "pm_alex",
+    "velocidade": 1.05
+  },
+  "pausas_ms": {
+    "paragrafo": 300
+  },
+  "pos_producao": {
+    "passa_alta_hz": 80,
+    "ganho_corpo_db": 2.0,
+    "ganho_presenca_db": 2.5,
+    "lufs": -14
+  }
+}

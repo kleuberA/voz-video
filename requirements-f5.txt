@@ -1,0 +1,6 @@
+# Opcional (Python 3.11): F5-TTS pt-BR. ATENÇÃO: modelo com licença NÃO comercial (CC-BY-NC)
+f5-tts
+setuptools<81
+faster-whisper
+jiwer
+librosa
