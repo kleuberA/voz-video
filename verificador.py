@@ -3,7 +3,7 @@ import re, numpy as np, jiwer, librosa
 
 _asr = None
 # equivalências que o Whisper escreve diferente mas que NÃO são erro de fala
-NUM = {"quarenta e nove": "49", "sete": "7", "vinte": "20", "cível": "civil"}
+NUM = {"quarenta e nove": "49", "sete": "7", "vinte": "20", "cível": "civil", "sível": "civil"}
 
 
 def _norm(s):

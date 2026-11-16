@@ -89,8 +89,8 @@ def pos_producao(entrada, saida, voz_grave=True, pp=None):
         # presença: 2–4 kHz é onde o ouvido humano é mais sensível (curvas
         # isofônicas) e onde estão as pistas das consoantes -> inteligibilidade
         f"equalizer=f=3000:t=q:w=1:g={pp['ganho_presenca_db']}",
-        "deesser=i=0.4:m=0.5:f=0.5",                                 # suaviza "s" e "x"
-        "acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2",
+        f"deesser=i={pp.get('deesser', 0.4)}:m=0.5:f=0.5",          # suaviza "s" e "x"
+        f"acompressor=threshold=-20dB:ratio={pp.get('compressao', 3)}:attack=8:release=120:makeup=2",
         f"loudnorm=I={pp['lufs']}:TP=-1.5:LRA=7",                    # -14 LUFS (Instagram)
         "aresample=48000",                                           # padrão de vídeo
     ]

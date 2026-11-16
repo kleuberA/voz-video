@@ -10,6 +10,41 @@
       "temperatura": 0.75,
       "pausa_ms": 280,
       "corte": "legado"
+    },
+    "v1.1": {
+      "descricao": "v1 com o corte de silêncio corrigido (o 'Se' inicial não é mais engolido). Mesmo timbre da v1.",
+      "referencia": "referencias/cv_131.wav",
+      "tentativas": 3,
+      "exagero": 0.5,
+      "cfg": 0.4,
+      "temperatura": 0.75,
+      "pausa_ms": 280,
+      "corte": "conservador"
+    },
+    "v2": {
+      "descricao": "Refinada: referência estendida do mesmo narrador (131+132, 7,6 s) e corte corrigido. Metade das pausas travadas.",
+      "referencia": "referencias/cv_131_longa.wav",
+      "tentativas": 3,
+      "exagero": 0.5,
+      "cfg": 0.4,
+      "temperatura": 0.75,
+      "pausa_ms": 280,
+      "corte": "conservador"
+    },
+    "v2-suave": {
+      "descricao": "v2 com finalização mais suave: menos compressão e menos brilho, som mais natural.",
+      "referencia": "referencias/cv_131_longa.wav",
+      "tentativas": 3,
+      "exagero": 0.5,
+      "cfg": 0.4,
+      "temperatura": 0.75,
+      "pausa_ms": 280,
+      "corte": "conservador",
+      "pos_producao": {
+        "compressao": 1.8,
+        "ganho_presenca_db": 1.2,
+        "deesser": 0.25
+      }
     }
   }
 }

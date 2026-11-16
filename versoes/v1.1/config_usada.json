@@ -1,0 +1,50 @@
+{
+  "preset": "v1.1",
+  "config": {
+    "descricao": "v1 com o corte de silêncio corrigido (o 'Se' inicial não é mais engolido). Mesmo timbre da v1.",
+    "referencia": "referencias/cv_131.wav",
+    "tentativas": 3,
+    "exagero": 0.5,
+    "cfg": 0.4,
+    "temperatura": 0.75,
+    "pausa_ms": 280,
+    "corte": "conservador"
+  },
+  "verificacao": [
+    {
+      "paragrafo": 1,
+      "erro": 0.0,
+      "ouvido": "Você sabia que se comprar um produto pela internet pode desistir da compra sem dar nenhuma justificativa?"
+    },
+    {
+      "paragrafo": 2,
+      "erro": 0.0,
+      "ouvido": "Isso se chama direito de arrependimento e está previsto no artigo 49 do Código de Defesa do Consumidor."
+    },
+    {
+      "paragrafo": 3,
+      "erro": 0.0,
+      "ouvido": "Funciona assim, sempre que a compra acontecer fora da loja física, seja pela internet, por  telefone ou em casa, você tem 7 dias para se arrepender.  O prazo começa a contar a partir do recebimento do produto ou da assinatura do contrato."
+    },
+    {
+      "paragrafo": 4,
+      "erro": 0.0,
+      "ouvido": "E atenção, a empresa é obrigada a devolver todos os valores pagos,  inclusive o frete com correção monetária."
+    },
+    {
+      "paragrafo": 5,
+      "erro": 0.0,
+      "ouvido": "Muita gente perde esse direito por desconhecimento, por isso guarde o comprovante da compra,  faça o pedido de cancelamento por escrito e anote o número do protocolo."
+    },
+    {
+      "paragrafo": 6,
+      "erro": 0.031,
+      "ouvido": "Se a empresa se recusar a devolver o dinheiro, você pode reclamar no PROCON ou procurar o  Juizado Especial Civil.  Em causes de até 20 salários mínimos, você nem precisa de advogado."
+    },
+    {
+      "paragrafo": 7,
+      "erro": 0.0,
+      "ouvido": "Conhecer seus direitos é a primeira forma de se proteger.  Salve este vídeo e compartilhe com quem precisa saber disso."
+    }
+  ]
+}

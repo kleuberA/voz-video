@@ -17,4 +17,4 @@ Esta é a opção "01" que você escolheu: a voz clonada a partir de um narrador
 python gerar_clonada.py roteiro.txt narracao.wav --preset v1
 ```
 
-O preset `v1` em `presets.json` está congelado. Ele inclui até o corte de silêncio antigo ("legado") que estava em uso quando a v1 foi gerada. Na tag do git `voz-v1` está o código exatamente como era nesse momento.
+O preset `v1` em `presets.json` está congelado. Ele inclui até o corte de silêncio antigo ("legado") que estava em uso quando a v1 foi gerada. A branch `versao-v1` no GitHub guarda o código exatamente como era nesse momento. Para voltar a ele: `git checkout versao-v1`.
