@@ -1,0 +1,49 @@
+{
+  "titulo": "Deputado preso? Os colegas decidem (CF, art. 53, § 2º)",
+  "falas": 6,
+  "velocidade": 1.12,
+  "lead": 0.05,
+  "gaps": { "2": 0.2, "3": 0.28, "5": 0.3, "6": 0.95 },
+  "timer": { "after": 3, "pre": 0.12, "dur": 1.8, "post": 0.05 },
+  "cauda": 1.3,
+  "cues": {
+    "colegas": { "seg": 1, "word": "colegas" },
+    "capa": { "seg": 1, "word": "colegas", "offset": 0.8 },
+    "mark": { "seg": 2, "word": "flagrante" },
+    "markEnd": { "seg": 2, "word": "inafiançável.", "campo": "e" },
+    "quote": { "seg": 3, "word": "escreve:" },
+    "opts": { "seg": 3, "word": "Certo" },
+    "verdict": { "seg": 4, "word": "Duas" },
+    "literalTap": { "inicio": 5, "offset": 0.6 },
+    "pick": { "seg": 5, "word": "texto" },
+    "ctaButton": { "seg": 6, "word": "grátis." },
+    "perfil": { "seg": 6, "word": "Link" },
+    "comment": { "seg": 6, "word": "Você" }
+  },
+  "cenas": [
+    ["gancho", null],
+    ["lei", { "inicio": 2, "offset": -0.12 }],
+    ["quiz", { "inicio": 3, "offset": -0.15 }],
+    ["app", { "inicio": 5, "offset": -0.2 }],
+    ["cta", { "inicio": 6, "offset": -0.2 }]
+  ],
+  "quentes": ["preso", "colegas", "cadeia", "inafiançável", "inafiançável.", "afiançável.", "errado.", "estuda", "leges", "grátis.", "perfil.", "acertou?"],
+  "sfx": [
+    ["whoosh", "cena:lei", -0.2, 0.9],
+    ["whoosh", "cena:quiz", -0.2, 0.9],
+    ["whoosh", "cena:app", -0.2, 0.9],
+    ["whoosh", "cena:cta", -0.2, 0.9],
+    ["boom", "cue:colegas", -0.01, 0.9],
+    ["pluck:587", "cue:quote", 0, 1],
+    ["pluck:739.6", "cue:opts", 0, 1],
+    ["tick", "contagem:3", 0, 1],
+    ["acerto", "cue:reveal", 0, 0.9],
+    ["brilho", "cue:reveal", 0.12, 0.6],
+    ["click", "cue:literalTap", 0, 1],
+    ["click", "cue:pick", 0, 1],
+    ["acerto_app", "cue:pick", 0.12, 1],
+    ["pluck:880", "cue:ctaButton", 0, 1.4],
+    ["pluck:1174.7", "cue:perfil", 0, 1.2],
+    ["pluck:987.8", "cue:comment", 0, 1.0]
+  ]
+}
