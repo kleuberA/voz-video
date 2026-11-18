@@ -1,0 +1,63 @@
+{
+  "titulo": "A escala 6x1 acabou? Ainda não (EC 141/2026, CF art. 7º, XIII)",
+  "falas": 6,
+  "velocidade": 1.12,
+  "lead": 0.05,
+  "gaps": { "2": 0.2, "3": 0.28, "5": 0.3, "6": 0.6 },
+  "timer": { "after": 3, "pre": 0.12, "dur": 1.8, "post": 0.05 },
+  "cauda": 1.3,
+  "cues": {
+    "ainda": { "seg": 1, "word": "Ainda" },
+    "capa": { "seg": 1, "word": "Ainda", "offset": 0.7 },
+    "to40": { "seg": 2, "word": "quarenta", "ordem": 1 },
+    "transicao": { "seg": 2, "word": "transição." },
+    "optA": { "seg": 3, "word": "Quarenta," },
+    "optB": { "seg": 3, "word": "quarenta", "ordem": 1 },
+    "optC": { "seg": 3, "word": "quarenta", "ordem": 2 },
+    "umAno": { "seg": 4, "word": "um" },
+    "avisa": { "seg": 5, "word": "aviso" },
+    "flash": { "seg": 5, "word": "flashcards" },
+    "ctaButton": { "seg": 6, "word": "grátis." },
+    "perfil": { "seg": 6, "word": "Link" },
+    "comment": { "seg": 6, "word": "Você" }
+  },
+  "cenas": [
+    ["gancho", null],
+    ["lei", { "inicio": 2, "offset": -0.12 }],
+    ["quiz", { "inicio": 3, "offset": -0.15 }],
+    ["app", { "inicio": 5, "offset": -0.2 }],
+    ["cta", { "inicio": 6, "offset": -0.2 }]
+  ],
+  "legenda": {
+    "seis por um": "6x1",
+    "cento e quarenta e um": "141",
+    "quarenta e quatro": "44",
+    "quarenta e duas": "42",
+    "quarenta": "40"
+  },
+  "quentes": ["6x1", "ainda", "não.", "44", "40", "42", "transição.", "dezembro,", "aviso", "estuda", "leges", "grátis.", "perfil."],
+  "sfx": [
+    ["whoosh", "cena:lei", -0.2, 0.9],
+    ["whoosh", "cena:quiz", -0.2, 0.9],
+    ["whoosh", "cena:app", -0.2, 0.9],
+    ["whoosh", "cena:cta", -0.2, 0.9],
+    ["boom", "cue:ainda", -0.01, 1],
+    ["tick:2200", "cue:to40", 0.1, 0.5],
+    ["tick:2000", "cue:to40", 0.3, 0.5],
+    ["tick:1800", "cue:to40", 0.55, 0.5],
+    ["acerto", "cue:to40", 0.9, 0.6],
+    ["boom", "cue:transicao", 0, 0.45],
+    ["pluck:587", "cue:optA", 0, 1],
+    ["pluck:739.6", "cue:optB", 0, 1],
+    ["pluck:932.3", "cue:optC", 0, 1],
+    ["tick", "contagem:3", 0, 1],
+    ["acerto", "cue:reveal", 0, 0.9],
+    ["brilho", "cue:reveal", 0.12, 0.6],
+    ["pluck:1318.5", "cue:reveal", 0.45, 1.0],
+    ["click", "cue:avisa", 0.2, 1],
+    ["acerto_app", "cena:app", 0.3, 0.6],
+    ["pluck:880", "cue:ctaButton", 0, 1.4],
+    ["pluck:1174.7", "cue:perfil", 0, 1.2],
+    ["pluck:987.8", "cue:comment", 0, 1.0]
+  ]
+}
