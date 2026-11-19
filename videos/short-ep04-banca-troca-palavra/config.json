@@ -1,0 +1,50 @@
+{
+  "titulo": "A banca troca uma palavra: prazo do veto (CF, art. 66, § 1º) e o flashcard do trecho",
+  "falas": 5,
+  "velocidade": 1.1,
+  "lead": 0.05,
+  "gaps": { "3": 0.3, "4": 0.8, "5": 0.35 },
+  "timer": { "after": 1, "pre": 0.12, "dur": 1.8, "post": 0.05 },
+  "cauda": 1.4,
+  "cues": {
+    "capa": { "inicio": 1, "offset": 1.2 },
+    "verdict": { "seg": 2, "word": "exatamente" },
+    "seleciona": { "seg": 3, "word": "seleciona" },
+    "flashcard": { "seg": 3, "word": "flashcard," },
+    "lacuna": { "seg": 3, "word": "lacuna." },
+    "lembrou": { "seg": 4, "word": "Lembrou?" },
+    "amanha": { "seg": 4, "word": "amanhã," },
+    "seis": { "seg": 4, "word": "seis" },
+    "esqueceu": { "seg": 4, "word": "Esqueceu?" },
+    "oferta": { "seg": 5, "word": "Sete" },
+    "ctaButton": { "seg": 5, "word": "cartão." },
+    "perfil": { "seg": 5, "word": "Link" }
+  },
+  "cenas": [
+    ["quiz", null],
+    ["app", { "inicio": 3, "offset": -0.2 }],
+    ["revisao", { "inicio": 4, "offset": -0.2 }],
+    ["cta", { "inicio": 5, "offset": -0.2 }]
+  ],
+  "legenda": { "vinte": "20", "quinze": "15", "seis": "6", "sete": "7" },
+  "quentes": ["errado.", "15", "úteis.", "flashcard,", "lacuna.", "lembrou?", "esqueceu?", "estuda", "leges.", "7", "grátis,", "perfil."],
+  "sfx": [
+    ["whoosh", "cena:app", -0.2, 0.9],
+    ["whoosh", "cena:revisao", -0.2, 0.9],
+    ["whoosh", "cena:cta", -0.2, 0.9],
+    ["tick", "contagem:3", 0, 1],
+    ["acerto", "cue:reveal", 0, 0.9],
+    ["brilho", "cue:reveal", 0.12, 0.6],
+    ["pluck:1318.5", "cue:reveal", 0.15, 0.8],
+    ["click", "cue:flashcard", 0, 1],
+    ["pluck:880", "cue:lacuna", 0, 0.8],
+    ["click", "cue:lembrou", -0.25, 1],
+    ["click", "cue:amanha", 0, 1],
+    ["acerto_app", "cue:amanha", 0.1, 0.8],
+    ["pluck:987.8", "cue:seis", 0, 0.9],
+    ["pluck:440", "cue:esqueceu", 0, 0.9],
+    ["boom", "cue:oferta", 0, 0.4],
+    ["pluck:880", "cue:ctaButton", 0, 1.4],
+    ["pluck:1174.7", "cue:perfil", 0, 1.2]
+  ]
+}
