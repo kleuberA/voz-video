@@ -1,0 +1,32 @@
+{
+  "_sobre": "Copie para epNN.json. Campos com * são obrigatórios. Fala = escrita como se fala (números por extenso, sem siglas). Tela = como aparece no vídeo.",
+  "id": "epNN *",
+  "titulo_interno": "",
+  "formato": "dia_a_dia | pegadinha | tecnica | demonstracao *",
+  "campanha": "direitos_do_dia_a_dia | pegadinha_de_prova | como_estudar | situacao_real",
+  "problema": "* A dúvida ou a dor do público em uma frase.",
+  "ganchos": [
+    {"id": "A", "fala": "* até ~6 palavras na 1ª frase", "tela": "* texto INTEIRO no quadro 0, até 8 palavras"},
+    {"id": "B", "fala": "* outro ângulo (pergunta × afirmação, número × situação)", "tela": "*"}
+  ],
+  "falas": ["* uma fala por cena, frases de até 20 palavras"],
+  "cta": {"fala": "* uma frase de oferta + o que fazer (link no perfil / comenta PALAVRA)", "tela": "A lei inteira, grátis · link no perfil"},
+  "cenas": [{"id": "", "texto_tela": "o que aparece e o que se mexe", "dura_aprox_s": 0}],
+  "fontes": [
+    {"norma": "*", "dispositivo": "*", "url": "* planalto.gov.br/...", "texto_literal": "* copiado da fonte", "conferido_por": "* nome", "conferido_em": "* AAAA-MM-DD", "vigencia_futura": false}
+  ],
+  "questao": {"origem": "banca | adaptada | app", "banca": "", "ano": "", "cargo": "", "fonte_url": ""},
+  "link": {"lei": "slug-da-lei", "artigo": "art-NN"},
+  "publicacao": {
+    "titulo_youtube": "começa pela busca, ~40 caracteres",
+    "titulos_alternativos": [],
+    "descricao": "",
+    "comentario_fixado": "pergunta de opinião, não de esforço",
+    "legenda_instagram": "",
+    "palavra_dm": "PALAVRA",
+    "hashtags": ["3 a 5"],
+    "enquete_story": "",
+    "melhor_horario": ""
+  },
+  "extra_s": 0
+}

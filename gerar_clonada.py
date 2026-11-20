@@ -46,6 +46,9 @@ cfg = dict(PRESETS["presets"][a.preset])
 for k in ["referencia", "tentativas", "exagero", "cfg", "temperatura", "pausa_ms", "corte"]:
     if getattr(a, k) is not None:
         cfg[k] = getattr(a, k)
+# o preset pode ligar a verificação de naturalidade e desligar a pós-produção (preset "shorts")
+a.natural = a.natural or cfg.get("natural", False)
+a.sem_pos = a.sem_pos or cfg.get("sem_pos", False)
 print(f"preset {a.preset}: {cfg['descricao']}")
 
 import numpy as np, torch, soundfile as sf
