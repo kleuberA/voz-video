@@ -10,6 +10,7 @@ estrutura está em [`DIAGNOSTICO.md`](DIAGNOSTICO.md).
 | `pronuncia.json` | Escritas que a voz erra (aprendidas nos episódios #1–#5). |
 | `episodios/_modelo.json` | Ficha do episódio: problema, 2 ganchos, falas, cenas, chamada, fontes, link e publicação. |
 | `episodios/ep05-exemplo.json` | O #5 refeito como ficha (bloqueado de propósito: fontes sem conferência). |
+| `../montar_audio.py` | Junta as falas, mede cada palavra (Whisper), gera efeitos, trilha e o `timing.json` da animação. |
 | `checar_roteiro.py` | Trava antes da voz: fonte oficial conferida, 2 ganchos, oferta atual, duração e pronúncia. |
 | `qa_video.py` | Trava antes de publicar: formato, volume, quadro 0, tela parada, chamada longa, áreas cobertas. |
 | `publicacao.py` | Gera o `PUBLICACAO.md` com todos os links rastreados (UTM) montados do mesmo jeito. |
@@ -66,10 +67,31 @@ for f in videos/short-ep06-tema/narracao/p*.txt; do python gerar_clonada.py "$f"
 O preset padrão agora é `shorts` (voz v2 + verificação de naturalidade + 6 tentativas). Confira os
 avisos ⚠ e reescreva a frase que errar em todas as tentativas, anotando a troca em `pronuncia.json`.
 
+Depois, monte a trilha e os tempos (o `config.json` do episódio define pausas, eventos, cenas,
+legenda e efeitos; copie o de um episódio parecido):
+
+```bash
+python montar_audio.py ep06
+```
+
+```bash
+python montar_audio.py ep06 --variante B
+```
+
+Saem `timing.json` e `audio/` (variante B: `timing-B.json` e `audio-B/`). O script avisa quando a
+pausa entre falas passa de 0,35 s, a chamada final passa de 15% ou o vídeo passa de 35 s: ajuste
+`gaps` e as falas no `config.json` e rode de novo.
+
 ### 5. Animação e render
 
 A animação (cenas, telas reais do app e render) fica no juris-app, branch
-`feat/shorts-pegadinha-da-semana`. Este repositório entrega as falas, a ficha e as regras.
+`feat/shorts-pegadinha-da-semana`. Este repositório entrega as falas, a trilha, os tempos e as
+regras. Para levar a saída até lá:
+
+```bash
+python montar_audio.py ep06 --destino ../juris-app/video/shorts/ep06
+```
+
 Renderize **as duas variantes do gancho** (o resto do vídeo é igual).
 
 ### 6. Controle de qualidade

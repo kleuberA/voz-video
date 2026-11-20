@@ -4,6 +4,7 @@
 > controle de qualidade, publicação e análise) está em [`producao/README.md`](producao/README.md). O
 > diagnóstico dos episódios #1–#5 está em [`producao/DIAGNOSTICO.md`](producao/DIAGNOSTICO.md).
 > O preset padrão de `gerar_clonada.py` agora é `shorts` (voz v2 + verificação de naturalidade).
+> `montar_audio.py` (trilha, efeitos e `timing.json` de cada episódio) também mora aqui agora.
 
 ## Instalação (uma vez só)
 
