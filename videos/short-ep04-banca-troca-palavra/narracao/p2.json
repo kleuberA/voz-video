@@ -3,7 +3,7 @@
   "config": {
     "descricao": "Refinada: referência estendida do mesmo narrador (131+132, 7,6 s) e corte corrigido. Metade das pausas travadas.",
     "referencia": "referencias/cv_131_longa.wav",
-    "tentativas": 5,
+    "tentativas": 6,
     "exagero": 0.5,
     "cfg": 0.4,
     "temperatura": 0.75,
@@ -14,7 +14,8 @@
     {
       "paragrafo": 1,
       "erro": 0.0,
-      "ouvido": "Errado, são 15 dias úteis e é exatamente essa troca que derruba quem só leu a lei."
+      "nota": 0.03,
+      "ouvido": "Errado. São 15 dias úteis. E é exatamente essa troca que derruba quem só leu a lei."
     }
   ]
 }

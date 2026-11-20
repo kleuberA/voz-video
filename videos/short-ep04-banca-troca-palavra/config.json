@@ -1,10 +1,11 @@
 {
   "titulo": "A banca troca uma palavra: prazo do veto (CF, art. 66, § 1º) e o flashcard do trecho",
   "falas": 5,
-  "velocidade": 1.1,
+  "velocidade": 1.0,
+  "velocidade_fala": { "2": 0.88 },
   "lead": 0.05,
-  "gaps": { "3": 0.3, "4": 0.8, "5": 0.35 },
-  "timer": { "after": 1, "pre": 0.12, "dur": 1.8, "post": 0.05 },
+  "gaps": { "3": 0.3, "4": 0.5, "5": 0.35 },
+  "timer": { "after": 1, "pre": 0.1, "dur": 1.5, "post": 0.05 },
   "cauda": 1.4,
   "cues": {
     "capa": { "inicio": 1, "offset": 1.2 },
@@ -32,7 +33,7 @@
     ["whoosh", "cena:app", -0.2, 0.9],
     ["whoosh", "cena:revisao", -0.2, 0.9],
     ["whoosh", "cena:cta", -0.2, 0.9],
-    ["tick", "contagem:3", 0, 1],
+    ["tick", "contagem:6", 0, 0.8],
     ["acerto", "cue:reveal", 0, 0.9],
     ["brilho", "cue:reveal", 0.12, 0.6],
     ["pluck:1318.5", "cue:reveal", 0.15, 0.8],
