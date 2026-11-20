@@ -1,0 +1,43 @@
+{
+  "titulo": "3 cobranças do restaurante que você NÃO é obrigado a pagar (CDC, art. 39)",
+  "falas": 5,
+  "velocidade": 1.0,
+  "lead": 0.05,
+  "gaps": { "2": 0.35, "3": 0.3, "4": 0.3, "5": 0.95 },
+  "cauda": 1.4,
+  "cues": {
+    "capa": { "inicio": 1, "offset": 1.0 },
+    "um": { "seg": 2, "word": "Um:" },
+    "opcional": { "seg": 2, "word": "opcionais." },
+    "dois": { "seg": 3, "word": "Dois:" },
+    "abusiva": { "seg": 3, "word": "abusiva," },
+    "tres": { "seg": 4, "word": "Três:" },
+    "obrigacao": { "seg": 4, "word": "obrigação" },
+    "paga": { "seg": 4, "word": "paga" },
+    "salva": { "seg": 5, "word": "Salva" },
+    "codigo": { "seg": 5, "word": "Código" },
+    "perfil": { "seg": 5, "word": "Link" }
+  },
+  "cenas": [
+    ["conta", null],
+    ["cta", { "inicio": 5, "offset": -0.2 }]
+  ],
+  "legenda": { "três": "3", "dez por cento": "10%", "trinta e nove": "39", "um": "1", "dois": "2" },
+  "quentes": ["3", "10%", "opcionais.", "nenhuma", "1:", "2:", "3:", "abusiva,", "proibida", "39.", "multa", "obrigação", "consumiu.", "salva", "grátis", "estuda", "leges.", "perfil."],
+  "sfx": [
+    ["pluck:587", "cue:um", 0, 1],
+    ["boom", "cue:opcional", 0, 0.8],
+    ["pluck:739.6", "cue:dois", 0, 1],
+    ["boom", "cue:abusiva", 0, 0.8],
+    ["pluck:932.3", "cue:tres", 0, 1],
+    ["boom", "cue:obrigacao", 0, 0.8],
+    ["tick:2200", "cue:paga", 0.1, 0.5],
+    ["tick:2000", "cue:paga", 0.35, 0.5],
+    ["tick:1800", "cue:paga", 0.65, 0.5],
+    ["acerto", "cue:paga", 1.1, 0.9],
+    ["brilho", "cue:paga", 1.22, 0.6],
+    ["whoosh", "cena:cta", -0.2, 0.9],
+    ["pluck:880", "cue:salva", 0, 1.2],
+    ["pluck:1174.7", "cue:perfil", 0, 1.2]
+  ]
+}

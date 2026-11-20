@@ -1,0 +1,21 @@
+{
+  "preset": "v2",
+  "config": {
+    "descricao": "Refinada: referência estendida do mesmo narrador (131+132, 7,6 s) e corte corrigido. Metade das pausas travadas.",
+    "referencia": "referencias/cv_131_longa.wav",
+    "tentativas": 6,
+    "exagero": 0.5,
+    "cfg": 0.4,
+    "temperatura": 0.75,
+    "pausa_ms": 280,
+    "corte": "conservador"
+  },
+  "verificacao": [
+    {
+      "paragrafo": 1,
+      "erro": 0.0,
+      "nota": 0.0,
+      "ouvido": "3. Multa por perder a comanda. Controlar o consumo é obrigação do restaurante. Você paga só o que consumiu."
+    }
+  ]
+}
