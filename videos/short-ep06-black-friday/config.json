@@ -9,8 +9,8 @@
     "2": 0.3,
     "3": 0.3,
     "4": 0.3,
-    "5": 0.3,
-    "6": 0.3
+    "5": 0.35,
+    "6": 0.35
   },
   "cauda": 1.2,
   "cues": {
@@ -61,7 +61,8 @@
     },
     "estornar": {
       "seg": 4,
-      "word": "estornar."
+      "word": "cartão,",
+      "campo": "e"
     },
     "fisica": {
       "seg": 5,
@@ -69,7 +70,7 @@
     },
     "naovale": {
       "seg": 5,
-      "word": "vale."
+      "word": "não"
     },
     "salva": {
       "seg": 6,
@@ -101,14 +102,14 @@
       "virada",
       {
         "inicio": 5,
-        "offset": -0.2
+        "offset": 0.05
       }
     ],
     [
       "cta",
       {
         "inicio": 6,
-        "offset": -0.2
+        "offset": 0.1
       }
     ]
   ],
