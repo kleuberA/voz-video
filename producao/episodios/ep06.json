@@ -1,0 +1,118 @@
+{
+  "_sobre": "Episódio #6. Texto das fontes copiado do Planalto em 2026-11-21. 'conferido_por' e 'conferido_em' ficam vazios até uma pessoa conferir: o verificador bloqueia a narração até lá.",
+  "id": "ep06",
+  "titulo_interno": "Comprou na Black Friday e se arrependeu? 3 regras do direito de arrependimento",
+  "formato": "dia_a_dia",
+  "campanha": "direitos_do_dia_a_dia",
+  "problema": "Na Black Friday (27/11/2026) muita gente compra por impulso pela internet e não sabe que pode desistir, de quando conta o prazo, o que recebe de volta, nem que na loja física esse direito não existe.",
+  "ganchos": [
+    {
+      "id": "A",
+      "fala": "Comprou na Black Friday e se arrependeu? Você tem sete dias pra devolver.",
+      "tela": "Se arrependeu da Black Friday? 7 dias."
+    },
+    {
+      "id": "B",
+      "fala": "Loja física? Não tem direito de arrependimento. Na internet, tem.",
+      "tela": "Loja física: NÃO vale. Internet: vale."
+    }
+  ],
+  "falas": [
+    "Um: comprou pela internet ou por telefone? Pode desistir em sete dias, sem explicar o motivo.",
+    "Dois: os sete dias contam da entrega, não do dia da compra.",
+    "Três: a loja devolve tudo o que você pagou, na hora e corrigido. No cartão, tem que estornar.",
+    "Mas atenção: comprou na loja física? Aí esse direito não vale."
+  ],
+  "cta": {
+    "fala": "Salva esse vídeo. A lei tá grátis no Estuda Leges, link no perfil.",
+    "tela": "A lei inteira, grátis · link no perfil"
+  },
+  "cenas": [
+    {
+      "id": "pedido",
+      "texto_tela": "Quadro 0: manchete do gancho no terço do meio + card de pedido 'Entregue' com um calendário de 7 quadradinhos. Algo muda a cada 1–1,5 s: o '7' gira de 0 a 7 (0,6 s), os quadradinhos acendem (1,2 s), o carimbo 'VOCÊ PODE DESISTIR' bate (2,5 s).",
+      "dura_aprox_s": 4
+    },
+    {
+      "id": "regras",
+      "texto_tela": "Contador 1/3, 2/3, 3/3. 1: ícones de navegador e telefone + 'sem explicar o motivo'. 2: linha do tempo 'compra' → 'entrega' com o dia 1 nascendo na ENTREGA. 3: fatura do cartão com a linha da compra riscada e 'ESTORNADO' em verde.",
+      "dura_aprox_s": 17
+    },
+    {
+      "id": "virada",
+      "texto_tela": "Cupom de loja física com carimbo vermelho 'NÃO VALE' (CDC, art. 49: fora do estabelecimento comercial).",
+      "dura_aprox_s": 3
+    },
+    {
+      "id": "cta",
+      "texto_tela": "Art. 49 do CDC na página pública do Estuda Leges, com o grifo correndo em '7 dias' e 'recebimento'.",
+      "dura_aprox_s": 4
+    }
+  ],
+  "fontes": [
+    {
+      "norma": "Lei nº 8.078/1990 (Código de Defesa do Consumidor)",
+      "dispositivo": "art. 49, caput",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "texto_literal": "Art. 49. O consumidor pode desistir do contrato, no prazo de 7 dias a contar de sua assinatura ou do ato de recebimento do produto ou serviço, sempre que a contratação de fornecimento de produtos e serviços ocorrer fora do estabelecimento comercial, especialmente por telefone ou a domicílio.",
+      "sustenta": "falas 1, 2 e a virada (loja física = dentro do estabelecimento comercial)",
+      "copiado_em": "2026-11-21",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Lei nº 8.078/1990 (Código de Defesa do Consumidor)",
+      "dispositivo": "art. 49, parágrafo único",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "texto_literal": "Parágrafo único. Se o consumidor exercitar o direito de arrependimento previsto neste artigo, os valores eventualmente pagos, a qualquer título, durante o prazo de reflexão, serão devolvidos, de imediato, monetariamente atualizados.",
+      "sustenta": "fala 3 (devolve tudo, na hora e corrigido)",
+      "copiado_em": "2026-11-21",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Decreto nº 7.962/2013 (comércio eletrônico)",
+      "dispositivo": "art. 5º, § 3º",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/decreto/d7962.htm",
+      "texto_literal": "§ 3º O exercício do direito de arrependimento será comunicado imediatamente pelo fornecedor à instituição financeira ou à administradora do cartão de crédito ou similar, para que: I - a transação não seja lançada na fatura do consumidor; ou II - seja efetivado o estorno do valor, caso o lançamento na fatura já tenha sido realizado.",
+      "sustenta": "fala 3 (no cartão, a compra tem que ser estornada)",
+      "copiado_em": "2026-11-21",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "revisao_humana": [
+    "'sem explicar o motivo': o art. 49 não condiciona a desistência a motivo; confirme que a leitura é essa.",
+    "'contam da entrega': para produto, o prazo conta do recebimento (art. 49). Para serviço contratado sem entrega, conta da assinatura: o vídeo fala de produto.",
+    "Frete: 'a qualquer título' (parágrafo único) costuma ser lido como incluindo o frete. Ficou só na descrição, como interpretação; a fala não promete o frete.",
+    "Loja física: o art. 49 vale para contratação fora do estabelecimento comercial. Troca de produto sem defeito na loja física depende da política da loja (não há dispositivo citado para isso; só no comentário fixado, como pergunta)."
+  ],
+  "riscos_de_voz": [
+    "'Black Friday' em inglês: gere e escute. Se a voz errar em todas as tentativas, troque por 'na promoção de novembro' e anote em pronuncia.json."
+  ],
+  "link": {
+    "lei": "codigo-de-defesa-do-consumidor",
+    "artigo": "art-49"
+  },
+  "publicacao": {
+    "titulo_youtube": "Se arrependeu da Black Friday? Você tem 7 dias",
+    "titulos_alternativos": [
+      "Loja física NÃO é obrigada a aceitar devolução?",
+      "Comprou online e se arrependeu? Faça isso"
+    ],
+    "descricao": "Comprou pela internet ou por telefone e se arrependeu? O Código de Defesa do Consumidor (art. 49) garante:\n1) 7 dias para desistir;\n2) o prazo conta do recebimento do produto, não da compra;\n3) devolução de tudo o que foi pago, a qualquer título (o que costuma incluir o frete), de imediato e corrigido. No cartão, a loja tem que avisar a operadora para não cobrar ou estornar (Decreto 7.962/2013, art. 5º, § 3º).\n\nNa loja física, esse direito não vale (o art. 49 é para compras fora do estabelecimento).",
+    "comentario_fixado": "E na loja física: você acha que a loja é obrigada a trocar um produto sem defeito? 👇",
+    "legenda_instagram": "Salva pra depois da Black Friday 🔖\n\nComprou online e se arrependeu? Você tem 7 dias, contados da ENTREGA. E na loja física, esse direito não vale.\n\nVocê já devolveu alguma compra? Comenta 👇",
+    "palavra_dm": "DEVOLVER",
+    "hashtags": [
+      "#blackfriday",
+      "#direitodoconsumidor",
+      "#comprasonline",
+      "#seusdireitos",
+      "#cdc"
+    ],
+    "enquete_story": "Você já se arrependeu de uma compra da Black Friday? (Sim / Nunca)",
+    "melhor_horario": "publicar até terça, 24/11, entre 19h e 21h (antes da Black Friday de 27/11); repostar nos Stories em 30/11, quando as entregas chegam e o arrependimento aparece"
+  },
+  "extra_s": 1.0
+}
