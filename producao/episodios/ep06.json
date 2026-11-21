@@ -24,7 +24,7 @@
     "Mas atenção: comprou na loja física? Aí esse direito não vale."
   ],
   "cta": {
-    "fala": "Salva esse vídeo. A lei tá grátis no Estuda Leges, link no perfil.",
+    "fala": "Salva esse vídeo. Link no perfil: a lei tá grátis no Estuda Leges.",
     "tela": "A lei inteira, grátis · link no perfil"
   },
   "cenas": [
@@ -88,7 +88,8 @@
     "Loja física: o art. 49 vale para contratação fora do estabelecimento comercial. Troca de produto sem defeito na loja física depende da política da loja (não há dispositivo citado para isso; só no comentário fixado, como pergunta)."
   ],
   "riscos_de_voz": [
-    "'Black Friday' em inglês: gere e escute. Se a voz errar em todas as tentativas, troque por 'na promoção de novembro' e anote em pronuncia.json."
+    "'Black Friday' em inglês: gere e escute. Se a voz errar em todas as tentativas, troque por 'na promoção de novembro' e anote em pronuncia.json.",
+    "'Estuda Leges' no meio da frase saiu 'Estudo Alegis' em 6 tentativas: a marca foi para o fim da chamada (mesma correção do #1)."
   ],
   "link": {
     "lei": "codigo-de-defesa-do-consumidor",

@@ -130,8 +130,10 @@ def video(f):
             "parado_s": maior / FPS_ANALISE, "parado_em": ini_maior / FPS_ANALISE}
 
 
-def tempos(pasta, duracao):
-    t = pasta / "timing.json"
+def tempos(pasta, duracao, video=None):
+    # variante B (estuda-leges-epNN-B*.mp4) usa timing-B.json
+    sufixo = "-B" if video is not None and re.search(r"-B(-|\.)", video.name) else ""
+    t = pasta / f"timing{sufixo}.json"
     if not t.exists():
         return None
     j = json.loads(t.read_text(encoding="utf-8"))
@@ -143,6 +145,15 @@ def tempos(pasta, duracao):
     timer = j.get("cues", {}).get("timer")
     lacunas = [(round(a["e"], 2), round(b["s"] - a["e"], 2)) for a, b in zip(palavras, palavras[1:])
                if b["s"] - a["e"] > 0.6 and not (timer is not None and a["e"] - 0.5 <= timer <= b["s"])]
+    # Com a voz isolada (audio/voz.wav do montar_audio.py), mede as pausas no próprio som: o fim de
+    # palavra do Whisper costuma vir antes do fim do som e inflava as pausas em ~0,5 s.
+    voz = pasta / f"audio{sufixo}" / "voz.wav"
+    if voz.exists():
+        err = sh(["ffmpeg", "-hide_banner", "-nostats", "-i", str(voz), "-af", "silencedetect=n=-35dB:d=0.45", "-f", "null", "-"]).stderr
+        ini = [float(x) for x in re.findall(r"silence_start: (-?[\d.]+)", err)]
+        fim = [float(x) for x in re.findall(r"silence_end: ([\d.]+)", err)]
+        lacunas = [(round(a, 2), round(b - a, 2)) for a, b in zip(ini, fim)
+                   if a > 0.1 and b < duracao - 0.3 and not (timer is not None and a - 0.5 <= timer <= b)]
     return {"cta_s": (cta["end"] - cta["start"]) if cta else None,
             "cta_pct": (cta["end"] - cta["start"]) / duracao if cta else None,
             "ppm": len(palavras) / falando * 60 if palavras else None,
@@ -219,7 +230,7 @@ def processar(alvo, salvar):
     # rascunho sem narração: não há o que medir no áudio
     au = audio(f, info["duracao"]) if info["acodec"] else {"lufs": None, "pico": None, "inicio_voz": 0.0, "silencios": []}
     vi = video(f)
-    ti = tempos(pasta, info["duracao"])
+    ti = tempos(pasta, info["duracao"], f)
     return f, pasta, info, au, vi, ti, avaliar(info, au, vi, ti)
 
 

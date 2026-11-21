@@ -436,7 +436,7 @@ for n in range(2, N + 1):
     if n == TM["after"] + 1:
         continue  # a contagem do quiz é silêncio de propósito
     pausa = inicio[n] - (inicio[n - 1] + dur(n - 1))
-    if pausa > 0.35:
+    if pausa > 0.35 + 1e-3:
         avisos.append(f"pausa de {pausa:.2f} s antes da fala {n} (gaps['{n}'] no config.json; meta ≤ 0,35 s).")
 if "cta" in CENAS:
     c = CENAS["cta"]["end"] - CENAS["cta"]["start"]
