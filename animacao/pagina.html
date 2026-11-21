@@ -43,13 +43,17 @@ await new Promise((ok) => { const i = new Image(); i.onload = i.onerror = ok; i.
 
 const ctx = { ficha, oferta, timing, variante, gancho: ficha.ganchos.find((g) => g.id === variante), provisorio: Boolean(timing.provisorio) };
 const palco = document.getElementById("palco");
-const desenhar = (t) => { palco.innerHTML = mod.quadro(t, ctx) + (ctx.provisorio ? `<div class="rascunho">RASCUNHO · TEMPO ESTIMADO, SEM NARRAÇÃO</div>` : ""); };
+// fonte sem conferência humana = rascunho, mesmo com a narração pronta (não pode ser publicado)
+const fontesPendentes = (ficha.fontes || []).some((f) => !String(f.conferido_por || "").trim() || !String(f.conferido_em || "").trim());
+const marca = ctx.provisorio ? "RASCUNHO · TEMPO ESTIMADO, SEM NARRAÇÃO" : fontesPendentes ? "RASCUNHO · FONTES NÃO CONFERIDAS" : "";
+const desenhar = (t) => { palco.innerHTML = mod.quadro(t, ctx) + (marca ? `<div class="rascunho">${marca}</div>` : ""); };
 
 window.__video = {
     fps: FPS,
     duracao: timing.duration,
     quadros: Math.round(timing.duration * FPS),
     timing: timingArq,
+    rascunho: Boolean(marca),
     capa: timing.cues.capa ?? 1.2,
     setFrame: (n) => new Promise((ok) => { desenhar(n / FPS); requestAnimationFrame(() => requestAnimationFrame(() => ok())); }),
 };

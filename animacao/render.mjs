@@ -60,13 +60,13 @@ async function abrir(ep, variante) {
     page.on("console", (m) => m.type() === "error" && console.error("console:", m.text()));
     await page.goto(`http://127.0.0.1:${porta}/animacao/pagina.html?ep=${encodeURIComponent(ep)}&variante=${variante}`, { waitUntil: "load" });
     await page.waitForFunction(() => Boolean(window.__video), null, { timeout: 30000 });
-    const info = await page.evaluate(() => ({ fps: window.__video.fps, quadros: window.__video.quadros, duracao: window.__video.duracao, timing: window.__video.timing, capa: window.__video.capa }));
+    const info = await page.evaluate(() => ({ fps: window.__video.fps, quadros: window.__video.quadros, duracao: window.__video.duracao, timing: window.__video.timing, capa: window.__video.capa, rascunho: window.__video.rascunho }));
     return { srv, browser, page, info };
 }
 
 const clip = { x: 0, y: 0, width: PALCO.width, height: PALCO.height };
 const idDo = (ep) => JSON.parse(readFileSync(path.join(RAIZ, ep, "config.json"), "utf8")).animacao;
-const rascunho = (info) => info.timing.includes("provisorio");
+const rascunho = (info) => info.rascunho;
 
 async function stills(ep, variante, tempos) {
     const { srv, browser, page, info } = await abrir(ep, variante);

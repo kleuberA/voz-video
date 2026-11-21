@@ -222,12 +222,22 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("ficha")
     ap.add_argument("--gerar-falas", type=Path)
+    # --rascunho: grava as falas mesmo com a CONFERÊNCIA das fontes pendente (link e texto literal
+    # continuam obrigatórios). O vídeo sai marcado "FONTES NÃO CONFERIDAS" e não pode ser publicado.
+    ap.add_argument("--rascunho", action="store_true")
     a = ap.parse_args()
     ficha = json.loads(Path(a.ficha).read_text(encoding="utf-8"))
     print(f"{ficha.get('id', '?')} · {ficha.get('titulo_interno', '')}")
     rel = checar(ficha)
     rel.imprimir()
-    if rel.erros:
+    pendencia = lambda m: re.search(r"falta '(conferido_por|conferido_em)'", m)
+    if rel.erros and not (a.rascunho and all(pendencia(m) for m in rel.erros)):
         sys.exit(1)
     if a.gerar_falas:
         gerar_falas(ficha, a.gerar_falas)
+        marca = a.gerar_falas / "RASCUNHO.txt"
+        if rel.erros:
+            marca.write_text("Falas gravadas com a conferência das fontes pendente. O vídeo sai marcado e não pode ser publicado.\n", encoding="utf-8")
+            print("\nRASCUNHO: conferência das fontes pendente. O vídeo sai marcado e não pode ser publicado.")
+        elif marca.exists():
+            marca.unlink()
