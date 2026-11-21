@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Short do Estuda Leges</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div class="palco" id="palco"></div>
+<img src="logo.png" alt="" style="display:none">
+<script type="module">
+/*
+ * Página de captura e prévia. Parâmetros:
+ *   ep=videos/short-ep06-black-friday   pasta do episódio (config.json, timing*.json)
+ *   variante=A|B                         gancho
+ *   t=12.5                               instante inicial (prévia)
+ * Ponte com render.mjs: window.__video.setFrame(n) desenha o quadro n e resolve quando ele já
+ * está pintado. Usa timing.json (da narração) se existir; senão, timing-provisorio.json, com a
+ * marca RASCUNHO.
+ */
+import { FPS } from "./motor.js";
+
+const q = new URLSearchParams(location.search);
+const ep = q.get("ep");
+const variante = q.get("variante") || "A";
+const suf = variante === "A" ? "" : "-" + variante;
+const raiz = "/";
+const ler = async (p) => { const r = await fetch(raiz + p); if (!r.ok) throw new Error(p + " " + r.status); return r.json(); };
+const existe = async (p) => (await fetch(raiz + p, { method: "HEAD" })).ok;
+
+const config = await ler(`${ep}/config.json`);
+const ficha = await ler(config.ficha);
+const oferta = (await ler("producao/oferta.json")).oferta;
+let timingArq = `${ep}/timing${suf}.json`;
+if (!(await existe(timingArq))) timingArq = `${ep}/timing-provisorio${suf}.json`;
+const timing = await ler(timingArq);
+const mod = await import(`./episodios/${config.animacao}.js`);
+// carrega as fontes e o logo antes do 1º quadro (nenhum quadro sai com fonte de reserva)
+await Promise.all(["400 20px 'Instrument Serif'", "italic 400 20px 'Instrument Serif'", "400 20px Newsreader", "700 20px Newsreader",
+    "400 20px Geist", "600 20px Geist", "800 20px Geist", "900 20px Geist", "600 20px 'Geist Mono'", "700 20px 'Geist Mono'"].map((f) => document.fonts.load(f)));
+await document.fonts.ready;
+await new Promise((ok) => { const i = new Image(); i.onload = i.onerror = ok; i.src = "logo.png"; });
+
+const ctx = { ficha, oferta, timing, variante, gancho: ficha.ganchos.find((g) => g.id === variante), provisorio: Boolean(timing.provisorio) };
+const palco = document.getElementById("palco");
+const desenhar = (t) => { palco.innerHTML = mod.quadro(t, ctx) + (ctx.provisorio ? `<div class="rascunho">RASCUNHO · TEMPO ESTIMADO, SEM NARRAÇÃO</div>` : ""); };
+
+window.__video = {
+    fps: FPS,
+    duracao: timing.duration,
+    quadros: Math.round(timing.duration * FPS),
+    timing: timingArq,
+    capa: timing.cues.capa ?? 1.2,
+    setFrame: (n) => new Promise((ok) => { desenhar(n / FPS); requestAnimationFrame(() => requestAnimationFrame(() => ok())); }),
+};
+desenhar(Number(q.get("t") || 0));
+</script>
+</body>
+</html>

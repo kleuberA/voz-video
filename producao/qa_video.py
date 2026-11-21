@@ -168,7 +168,9 @@ def avaliar(info, au, vi, ti):
         add("aviso", f"{d:.1f} s: abaixo de 20 s.")
     else:
         add("ok", f"{d:.1f} s.")
-    if abs(au["lufs"] + 14) > 1:
+    if au["lufs"] is None:
+        add("aviso", "Sem áudio (rascunho sem narração).")
+    elif abs(au["lufs"] + 14) > 1:
         add("aviso", f"Volume {au['lufs']:.1f} LUFS (alvo −14).")
     else:
         add("ok", f"Volume {au['lufs']:.1f} LUFS.")
@@ -214,7 +216,8 @@ def folha(f, destino):
 def processar(alvo, salvar):
     f, pasta = achar_video(Path(alvo))
     info = sondar(f)
-    au = audio(f, info["duracao"])
+    # rascunho sem narração: não há o que medir no áudio
+    au = audio(f, info["duracao"]) if info["acodec"] else {"lufs": None, "pico": None, "inicio_voz": 0.0, "silencios": []}
     vi = video(f)
     ti = tempos(pasta, info["duracao"])
     return f, pasta, info, au, vi, ti, avaliar(info, au, vi, ti)
@@ -224,7 +227,7 @@ def markdown(f, info, au, vi, ti, itens):
     simb = {"ok": "✅", "aviso": "⚠️", "erro": "❌"}
     linhas = [f"# QA de `{f.name}`", "",
               f"{info['largura']}×{info['altura']}, {info['fps']:.0f} fps, {info['duracao']:.1f} s, "
-              f"{au['lufs']:.1f} LUFS" + (f", cenas: {ti['cenas']}" if ti else ""), ""]
+              + (f"{au['lufs']:.1f} LUFS" if au["lufs"] is not None else "sem áudio") + (f", cenas: {ti['cenas']}" if ti else ""), ""]
     linhas += [f"- {simb[n]} {m}" for n, m in itens]
     linhas += ["", "Folha de quadros (1 por segundo): `qa-folha.jpg`.", ""]
     return "\n".join(linhas)
@@ -245,7 +248,7 @@ if __name__ == "__main__":
         if a.resumo:
             cta = f"{ti['cta_pct']:.0%}" if ti and ti["cta_pct"] is not None else "—"
             print(f"{pasta.name:34} {info['duracao']:5.1f}s  chamada {cta:>4}  quadro0 {vi['densidade_q0'] / vi['densidade_mediana']:4.0%}  "
-                  f"parado {vi['parado_s']:3.1f}s  {au['lufs']:.1f} LUFS  → {erros} erro(s), {avisos} aviso(s)")
+                  f"parado {vi['parado_s']:3.1f}s  {au['lufs'] if au['lufs'] is not None else '—'} LUFS  → {erros} erro(s), {avisos} aviso(s)")
             continue
         print(markdown(f, info, au, vi, ti, itens))
         if a.salvar:

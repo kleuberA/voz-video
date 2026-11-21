@@ -1,0 +1,213 @@
+/*
+ * Identidade dos Shorts do Estuda Leges (a mesma do filme e dos Shorts #1–#5): verde-escuro, serifa
+ * Instrument Serif nos títulos, Newsreader no texto de lei, Geist na interface, âmbar nos destaques.
+ *
+ * Palco: 432×768 px de CSS, capturado a 2,5× = 1080×1920.
+ * Áreas cobertas pela interface do Shorts/Reels (px do palco): rodapé ~200 px (título, canal,
+ * legenda do post), coluna direita ~60 px (botões) e topo ~60 px (busca). Nada essencial ali.
+ */
+
+@font-face { font-family: "Geist"; src: url("fontes/geist-100-900.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Geist Mono"; src: url("fontes/geist-mono-100-900.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Instrument Serif"; src: url("fontes/instrument-serif-400.woff2") format("woff2"); font-display: block; }
+@font-face { font-family: "Instrument Serif"; src: url("fontes/instrument-serif-400-italic.woff2") format("woff2"); font-style: italic; font-display: block; }
+@font-face { font-family: "Newsreader"; src: url("fontes/newsreader-200-800.woff2") format("woff2"); font-weight: 200 800; font-display: block; }
+
+:root {
+	--st-0: #0f2219;
+	--st-1: #08120d;
+	--cap: #f3efe6;
+	--cap-2: rgba(243, 239, 230, 0.72);
+	--cap-3: rgba(243, 239, 230, 0.45);
+	--hi: #8ddba6;
+	--hi-forte: #22a055;
+	--amber: #f2b766;
+	--red: #ef5a4c;
+	--chip: rgba(255, 255, 255, 0.06);
+	--chip-line: rgba(255, 255, 255, 0.13);
+	--paper: #f5f1e6;
+	--paper-ink: #1f2421;
+	--paper-ink-2: rgba(31, 36, 33, 0.55);
+	--display: "Instrument Serif", "Times New Roman", serif;
+	--serif: "Newsreader", Georgia, serif;
+	--sans: "Geist", system-ui, sans-serif;
+	--mono: "Geist Mono", ui-monospace, monospace;
+	--safe-bottom: 200px;
+	--safe-right: 60px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #000; }
+
+.palco {
+	color: var(--cap);
+	font-family: var(--sans);
+	height: 768px;
+	overflow: hidden;
+	position: relative;
+	width: 432px;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Fundo: luz verde que deriva devagar sobre o verde-escuro, igual entre as cenas. */
+.fundo {
+	background:
+		radial-gradient(60% 42% at var(--g1x) var(--g1y), rgba(34, 160, 84, 0.26), transparent 70%),
+		radial-gradient(50% 35% at var(--g2x) var(--g2y), rgba(214, 160, 70, 0.08), transparent 70%),
+		linear-gradient(180deg, var(--st-0), var(--st-1));
+	inset: 0;
+	position: absolute;
+}
+.camada { inset: 0; position: absolute; }
+
+/* Selo da marca no topo (a partir da 2ª cena). */
+.selo {
+	align-items: center;
+	background: var(--chip);
+	border: 1px solid var(--chip-line);
+	border-radius: 99px;
+	display: inline-flex;
+	font-size: 11.5px;
+	font-weight: 600;
+	gap: 6px;
+	left: 16px;
+	padding: 5px 10px 5px 7px;
+	position: absolute;
+	top: 66px;
+	z-index: 30;
+}
+.selo img { height: 15px; width: 15px; }
+
+.kicker {
+	color: var(--hi);
+	font-family: var(--mono);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+.kicker.ambar { color: var(--amber); }
+.titulo {
+	font-family: var(--display);
+	font-weight: 400;
+	letter-spacing: -0.012em;
+	line-height: 0.98;
+}
+.ambar { color: var(--amber); }
+.verde { color: var(--hi); }
+
+/* Legenda palavra por palavra (o vídeo precisa funcionar sem som). */
+.legenda {
+	display: flex;
+	justify-content: center;
+	left: 18px;
+	position: absolute;
+	right: 54px;
+	text-align: center;
+	top: 520px;
+	z-index: 40;
+}
+.legenda-linha {
+	color: #fff;
+	font-size: 25px;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	line-height: 1.12;
+	paint-order: stroke fill;
+	-webkit-text-stroke: 5px rgba(0, 0, 0, 0.85);
+	text-shadow: 0 3px 10px rgba(0, 0, 0, 0.55);
+}
+/* margem: o contorno de 5 px encobria o espaço entre palavras curtas ("de arrependimento") */
+.legenda-linha span { display: inline-block; margin: 0 0.1em; transform-origin: 50% 70%; }
+.legenda-linha .dita { color: var(--hi); }
+.legenda-linha .quente { color: var(--amber); }
+
+/* Papel (pedido, cupom, fatura): o objeto que muda na tela. */
+.papel {
+	background: var(--paper);
+	border-radius: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 26px 60px -20px rgba(0, 0, 0, 0.7);
+	color: var(--paper-ink);
+	font-family: var(--mono);
+	position: absolute;
+}
+.papel .cab {
+	border-bottom: 1px dashed rgba(31, 36, 33, 0.25);
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	padding: 14px 16px 10px;
+	text-align: center;
+}
+.papel .cab small {
+	color: var(--paper-ink-2);
+	display: block;
+	font-size: 8.5px;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	margin-top: 3px;
+}
+.papel .linha {
+	display: flex;
+	font-size: 12px;
+	justify-content: space-between;
+	padding: 6px 16px;
+	position: relative;
+}
+
+.carimbo {
+	border: 3px solid currentColor;
+	border-radius: 7px;
+	font-family: var(--sans);
+	font-weight: 900;
+	letter-spacing: 0.05em;
+	padding: 5px 12px 4px;
+	position: absolute;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+.carimbo.vermelho { color: var(--red); background: rgba(239, 90, 76, 0.08); }
+.carimbo.verde { color: #18864a; background: rgba(24, 134, 74, 0.08); }
+.carimbo.claro { color: var(--hi); background: rgba(141, 219, 166, 0.1); box-shadow: 0 0 40px rgba(141, 219, 166, 0.25); }
+
+.chip {
+	align-items: center;
+	background: var(--chip);
+	border: 1px solid var(--chip-line);
+	border-radius: 12px;
+	display: inline-flex;
+	font-size: 14px;
+	font-weight: 600;
+	gap: 8px;
+	padding: 9px 13px;
+}
+.chip.ok { border-color: rgba(141, 219, 166, 0.45); color: var(--hi); }
+.chip.nao { border-color: rgba(239, 90, 76, 0.5); color: var(--red); }
+.chip svg { height: 18px; width: 18px; }
+
+.contador {
+	font-family: var(--sans);
+	font-size: 30px;
+	font-weight: 800;
+	position: absolute;
+	right: 66px;
+	top: 60px;
+}
+.contador small { color: var(--cap-3); font-size: 16px; font-weight: 600; }
+
+/* Marca d'água do rascunho (tempos estimados, sem narração). */
+.rascunho {
+	background: rgba(239, 90, 76, 0.9);
+	border-radius: 5px;
+	color: #fff;
+	font-family: var(--mono);
+	font-size: 9px;
+	font-weight: 700;
+	left: 50%;
+	letter-spacing: 0.12em;
+	padding: 3px 7px;
+	position: absolute;
+	top: 22px;
+	transform: translateX(-50%);
+	z-index: 90;
+}

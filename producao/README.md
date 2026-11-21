@@ -10,6 +10,8 @@ estrutura está em [`DIAGNOSTICO.md`](DIAGNOSTICO.md).
 | `pronuncia.json` | Escritas que a voz erra (aprendidas nos episódios #1–#5). |
 | `episodios/_modelo.json` | Ficha do episódio: problema, 2 ganchos, falas, cenas, chamada, fontes, link e publicação. |
 | `episodios/ep05-exemplo.json` | O #5 refeito como ficha (bloqueado de propósito: fontes sem conferência). |
+| `../animacao/` | Animação quadro a quadro e render do MP4 (ver `animacao/README.md`). |
+| `tempo_provisorio.py` | Tempos estimados pelo texto, para animar antes da narração. |
 | `../montar_audio.py` | Junta as falas, mede cada palavra (Whisper), gera efeitos, trilha e o `timing.json` da animação. |
 | `checar_roteiro.py` | Trava antes da voz: fonte oficial conferida, 2 ganchos, oferta atual, duração e pronúncia. |
 | `qa_video.py` | Trava antes de publicar: formato, volume, quadro 0, tela parada, chamada longa, áreas cobertas. |
@@ -84,15 +86,31 @@ pausa entre falas passa de 0,35 s, a chamada final passa de 15% ou o vídeo pass
 
 ### 5. Animação e render
 
-A animação (cenas, telas reais do app e render) fica no juris-app, branch
-`feat/shorts-pegadinha-da-semana`. Este repositório entrega as falas, a trilha, os tempos e as
-regras. Para levar a saída até lá:
+A animação mora em `animacao/` (detalhes em [`animacao/README.md`](../animacao/README.md)): uma
+página por episódio (`animacao/episodios/<id>.js`) desenhada quadro a quadro a partir do
+`timing.json`. Dá para começar **antes da narração**, com tempos estimados (sai marcado RASCUNHO):
 
 ```bash
-python montar_audio.py ep06 --destino ../juris-app/video/shorts/ep06
+python producao/tempo_provisorio.py videos/short-ep06-tema
 ```
 
-Renderize **as duas variantes do gancho** (o resto do vídeo é igual).
+```bash
+node animacao/render.mjs stills videos/short-ep06-tema A 0,2,8,15,21,27
+```
+
+Com a narração pronta (`montar_audio.py`), o mesmo comando usa o `timing.json` real e junta o áudio.
+Renderize **as duas variantes do gancho** (o resto do vídeo é igual):
+
+```bash
+node animacao/render.mjs tudo videos/short-ep06-tema A
+```
+
+```bash
+node animacao/render.mjs tudo videos/short-ep06-tema B
+```
+
+Os episódios #1 a #5 foram animados no juris-app (branch `feat/shorts-pegadinha-da-semana`); a
+opção `montar_audio.py --destino` continua levando a trilha e os tempos para lá, se precisar.
 
 ### 6. Controle de qualidade
 
