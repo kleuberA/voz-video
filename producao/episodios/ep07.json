@@ -1,0 +1,139 @@
+{
+  "_sobre": "Episódio #7, o primeiro feito para CONVERSÃO (cadastro), não alcance. Textos da CF copiados do Planalto em 2026-11-22. Fontes sem conferência humana: o vídeo sai marcado RASCUNHO até alguém conferir.",
+  "id": "ep07",
+  "titulo_interno": "Tortura é crime imprescritível? (CF, art. 5º, XLII a XLIV) + treino de literalidade",
+  "formato": "pegadinha",
+  "campanha": "conversao_treino",
+  "objetivo": "cadastro",
+  "problema": "O concurseiro lê o art. 5º, decora 'inafiançável e imprescritível' como se valesse para todos os crimes graves e erra a questão. Ler não basta: a banca troca uma palavra.",
+  "por_que_converte": [
+    "Público certo: pegadinha de prova fala com concurseiro e OAB (quem assina), não com o público geral do #6.",
+    "A chamada aponta para algo que só existe com conta: o botão 'Treinar literalidade' da página pública do artigo abre 'Crie sua conta grátis pra treinar a letra deste artigo' (app/leis/public-law-reader.tsx).",
+    "O gerador do treino (lib/literalidade/generate.ts) troca exatamente estes termos: inafiançável/afiançável, imprescritível/prescritível, reclusão/detenção (art. 5º, XLII e XLIV).",
+    "Nada de 'a lei é grátis, sem cadastro' na fala: isso dava à pessoa o que ela queria sem criar conta."
+  ],
+  "ganchos": [
+    {
+      "id": "A",
+      "fala": "Tortura é crime imprescritível. Certo ou errado?",
+      "tela": "Tortura é crime *imprescritível*."
+    },
+    {
+      "id": "B",
+      "fala": "Pela Constituição, tortura não prescreve. Certo ou errado?",
+      "tela": "Pela CF, tortura *não prescreve*."
+    }
+  ],
+  "falas": [
+    "Errado. Tortura prescreve.",
+    "Na Constituição, só dois crimes são imprescritíveis: racismo e ação de grupos armados contra a ordem constitucional.",
+    "Tortura, tráfico, terrorismo e crimes hediondos são inafiançáveis, sem graça nem anistia. Mas prescrevem.",
+    "A banca troca uma palavra e derruba quem só leu. O jeito é treinar a letra da lei."
+  ],
+  "cta": {
+    "fala": "Link no perfil: toca em treinar e cria sua conta grátis no Estuda Leges.",
+    "tela": "Treinar literalidade → Criar conta grátis · link no perfil"
+  },
+  "cenas": [
+    {
+      "id": "quiz",
+      "texto_tela": "Quadro 0: kicker 'PEGADINHA DE PROVA · CF, ART. 5º' + afirmação grande + Certo/Errado. Grifo corre em 'imprescritível' (0,5 s), botões pulsam, anel da contagem; revelação: 'Errado' verde, 'imprescritível' riscado e 'PRESCREVE' carimbado.",
+      "dura_aprox_s": 7
+    },
+    {
+      "id": "lista",
+      "texto_tela": "'Imprescritíveis na CF: só 2' — chips Racismo (XLII) e Grupos armados (XLIV) entram na fala.",
+      "dura_aprox_s": 6
+    },
+    {
+      "id": "contraste",
+      "texto_tela": "Quatro chips (tortura, tráfico, terrorismo, hediondos — XLIII) com 'inafiançáveis ✓' e 'sem graça nem anistia ✓'; carimbo vermelho 'PRESCREVEM'.",
+      "dura_aprox_s": 6
+    },
+    {
+      "id": "treino",
+      "texto_tela": "Exemplo de questão do treino de literalidade: o inciso XLII com 'inafiançável' trocado por 'afiançável' (a troca que o gerador faz) e 'Certo / Errado'.",
+      "dura_aprox_s": 5
+    },
+    {
+      "id": "cta",
+      "texto_tela": "O caminho real: 1) link no perfil → 2) art. 5º, botão 'Treinar literalidade' com cadeado → 3) 'Criar conta grátis' + '7 dias de Premium grátis · sem cartão'.",
+      "dura_aprox_s": 5
+    }
+  ],
+  "fontes": [
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, XLII",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "XLII - a prática do racismo constitui crime inafiançável e imprescritível, sujeito à pena de reclusão, nos termos da lei;",
+      "sustenta": "fala 3 (racismo imprescritível) e a questão de exemplo do treino",
+      "copiado_em": "2026-11-22",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, XLIII",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "XLIII - a lei considerará crimes inafiançáveis e insuscetíveis de graça ou anistia a prática da tortura , o tráfico ilícito de entorpecentes e drogas afins, o terrorismo e os definidos como crimes hediondos, por eles respondendo os mandantes, os executores e os que, podendo evitá-los, se omitirem;",
+      "sustenta": "falas 2 e 4 (tortura, tráfico, terrorismo e hediondos: inafiançáveis, sem graça nem anistia, e o inciso não os declara imprescritíveis)",
+      "copiado_em": "2026-11-22",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, XLIV",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "XLIV - constitui crime inafiançável e imprescritível a ação de grupos armados, civis ou militares, contra a ordem constitucional e o Estado Democrático;",
+      "sustenta": "fala 3 (ação de grupos armados imprescritível)",
+      "copiado_em": "2026-11-22",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "questao": {
+    "origem": "adaptada",
+    "banca": "",
+    "ano": "",
+    "cargo": "",
+    "fonte_url": "",
+    "nota": "Afirmação no estilo certo/errado montada sobre o texto do art. 5º; não é questão de uma prova específica. Na tela: 'pegadinha de prova', sem nome de banca."
+  },
+  "revisao_humana": [
+    "A fala diz 'Na Constituição, só dois crimes são imprescritíveis'. Fora da CF há o Estatuto de Roma (Decreto 4.388/2002, art. 29: crimes da competência do TPI não prescrevem) e a jurisprudência sobre reparação CIVIL de tortura na ditadura. O vídeo fala só da CF e da esfera penal; confirme que 'Na Constituição' e 'Tortura prescreve' estão bem delimitados.",
+    "'Errado. Tortura prescreve.': correto pela CF (o XLIII não a declara imprescritível) e pelas regras gerais de prescrição penal.",
+    "'sem graça nem anistia' resume 'insuscetíveis de graça ou anistia' (XLIII).",
+    "A questão de exemplo do treino (XLII com 'afiançável') é a troca que o gerador do app faz para esse inciso, mas o treino sorteia entre os alvos do artigo: o vídeo mostra 'exemplo de questão', sem prometer que essa sairá."
+  ],
+  "riscos_de_voz": [
+    "'imprescritíveis', 'inafiançáveis' e 'anistia' são longas: escutar. Se errar sempre, quebrar a frase.",
+    "'Estuda Leges' no fim da chamada (no meio da frase saiu 'Estudo Alegis' no #6)."
+  ],
+  "link": {
+    "lei": "constituicao-federal",
+    "artigo": "art-5"
+  },
+  "publicacao": {
+    "titulo_youtube": "Tortura é crime imprescritível? Pegadinha de prova",
+    "titulos_alternativos": [
+      "Pegadinha de concurso: o que é imprescritível na CF?",
+      "Tortura prescreve? Certo ou errado"
+    ],
+    "descricao": "Pegadinha de prova: tortura é crime imprescritível? ERRADO.\n\nNa Constituição, só dois crimes são imprescritíveis: racismo (art. 5º, XLII) e a ação de grupos armados contra a ordem constitucional e o Estado Democrático (art. 5º, XLIV).\n\nTortura, tráfico, terrorismo e hediondos são inafiançáveis e insuscetíveis de graça ou anistia (art. 5º, XLIII), mas o texto não os torna imprescritíveis.\n\nA banca troca uma palavra. O treino de literalidade do Estuda Leges faz o mesmo com o texto oficial: abra o art. 5º, toque em \"Treinar literalidade\" e crie sua conta grátis.",
+    "comentario_fixado": "Você marcou CERTO ou ERRADO de primeira? 👇 Responde aqui com C ou E.",
+    "legenda_instagram": "Certo ou errado: tortura é crime imprescritível? 🤔\n\nResposta no vídeo. Na CF, só 2 crimes são imprescritíveis: racismo e ação de grupos armados.",
+    "palavra_dm": "TREINO",
+    "hashtags": [
+      "#concursopublico",
+      "#oab",
+      "#direitoconstitucional",
+      "#concurseiros",
+      "#leiseca"
+    ],
+    "enquete_story": "Tortura é crime imprescritível? (Certo / Errado)",
+    "melhor_horario": "domingo à tarde ou dias úteis entre 19h e 22h (quando o concurseiro estuda); no Instagram, repostar nos Stories com o sticker de link no mesmo dia — é o único link clicável direto"
+  },
+  "extra_s": 1.6
+}

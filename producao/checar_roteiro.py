@@ -184,6 +184,8 @@ def checar(f):
     elif total > 35:
         r.aviso(f"Acima de 35 s. Corte {total - 32:.0f} s do miolo: cada segundo a mais derruba a % assistida.")
     limite = CTA_MAX.get(formato, CTA_MAX_PADRAO)
+    if f.get("objetivo") == "cadastro":  # vídeo de conversão: a chamada é o ponto do vídeo
+        limite = max(limite, 0.20)
     if s_cta / total > limite:
         r.aviso(f"Chamada final com {s_cta:.1f} s ({s_cta / total:.0%} do vídeo; limite {limite:.0%}). Deixe a oferta em uma frase e ponha o resto na tela.")
     if not re.search(r"perfil|bio|link|comenta|salva", cta, re.I):

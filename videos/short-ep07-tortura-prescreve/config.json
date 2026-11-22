@@ -1,0 +1,259 @@
+{
+  "titulo": "Tortura é crime imprescritível? (CF, art. 5º, XLII a XLIV) — conversão para o treino",
+  "ficha": "producao/episodios/ep07.json",
+  "animacao": "ep07",
+  "capa_t": 1.7,
+  "falas": 6,
+  "velocidade": 1.0,
+  "velocidade_fala": {
+    "1": 1.1
+  },
+  "lead": 0.05,
+  "gaps": {
+    "2": 0.2,
+    "3": 0.2,
+    "4": 0.2,
+    "5": 0.2,
+    "6": 0.2
+  },
+  "timer": {
+    "after": 1,
+    "pre": 0.1,
+    "dur": 1.5,
+    "post": 0.05
+  },
+  "cauda": 0.9,
+  "cues": {
+    "certo": {
+      "seg": 1,
+      "word": "Certo"
+    },
+    "errado": {
+      "seg": 2,
+      "word": "Errado."
+    },
+    "prescreve": {
+      "seg": 2,
+      "word": "prescreve."
+    },
+    "racismo": {
+      "seg": 3,
+      "word": "racismo"
+    },
+    "grupos": {
+      "seg": 3,
+      "word": "grupos"
+    },
+    "tortura": {
+      "seg": 4,
+      "word": "Tortura,"
+    },
+    "trafico": {
+      "seg": 4,
+      "word": "tráfico,"
+    },
+    "terrorismo": {
+      "seg": 4,
+      "word": "terrorismo"
+    },
+    "hediondos": {
+      "seg": 4,
+      "word": "hediondos"
+    },
+    "inafiancaveis": {
+      "seg": 4,
+      "word": "inafiançáveis,"
+    },
+    "anistia": {
+      "seg": 4,
+      "word": "anistia."
+    },
+    "prescrevem": {
+      "seg": 4,
+      "word": "Mas"
+    },
+    "troca": {
+      "seg": 5,
+      "word": "troca"
+    },
+    "leu": {
+      "seg": 5,
+      "word": "leu."
+    },
+    "treinar": {
+      "seg": 5,
+      "word": "treinar"
+    },
+    "perfil": {
+      "seg": 6,
+      "word": "perfil:"
+    },
+    "toca": {
+      "seg": 6,
+      "word": "toca"
+    },
+    "cria": {
+      "seg": 6,
+      "word": "cria"
+    },
+    "gratis": {
+      "seg": 6,
+      "word": "grátis"
+    }
+  },
+  "cenas": [
+    [
+      "quiz",
+      null
+    ],
+    [
+      "lista",
+      {
+        "inicio": 3,
+        "offset": -0.2
+      }
+    ],
+    [
+      "contraste",
+      {
+        "inicio": 4,
+        "offset": -0.2
+      }
+    ],
+    [
+      "treino",
+      {
+        "inicio": 5,
+        "offset": -0.2
+      }
+    ],
+    [
+      "cta",
+      {
+        "inicio": 6,
+        "offset": 0.05
+      }
+    ]
+  ],
+  "legenda": {
+    "dois": "2"
+  },
+  "quentes": [
+    "imprescritível.",
+    "errado.",
+    "prescreve.",
+    "dois",
+    "racismo",
+    "grupos",
+    "prescrevem.",
+    "palavra",
+    "treinar",
+    "perfil:",
+    "grátis",
+    "leges."
+  ],
+  "sfx": [
+    [
+      "tick",
+      "contagem:3",
+      0,
+      0.8
+    ],
+    [
+      "acerto",
+      "cue:reveal",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:reveal",
+      0.12,
+      0.6
+    ],
+    [
+      "whoosh",
+      "cena:lista",
+      -0.2,
+      0.9
+    ],
+    [
+      "pluck:880",
+      "cue:racismo",
+      0,
+      0.8
+    ],
+    [
+      "pluck:1174.7",
+      "cue:grupos",
+      0,
+      0.8
+    ],
+    [
+      "whoosh",
+      "cena:contraste",
+      -0.2,
+      0.9
+    ],
+    [
+      "click",
+      "cue:tortura",
+      0,
+      0.8
+    ],
+    [
+      "click",
+      "cue:trafico",
+      0,
+      0.8
+    ],
+    [
+      "click",
+      "cue:terrorismo",
+      0,
+      0.8
+    ],
+    [
+      "click",
+      "cue:hediondos",
+      0,
+      0.8
+    ],
+    [
+      "boom",
+      "cue:prescrevem",
+      0,
+      0.5
+    ],
+    [
+      "whoosh",
+      "cena:treino",
+      -0.2,
+      0.9
+    ],
+    [
+      "pluck:659.3",
+      "cue:troca",
+      0,
+      0.9
+    ],
+    [
+      "whoosh",
+      "cena:cta",
+      -0.2,
+      0.9
+    ],
+    [
+      "click",
+      "cue:toca",
+      0,
+      1
+    ],
+    [
+      "pluck:1318.5",
+      "cue:cria",
+      0,
+      1.1
+    ]
+  ]
+}
