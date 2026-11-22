@@ -1,0 +1,23 @@
+{
+  "preset": "shorts",
+  "config": {
+    "descricao": "Padrão dos Shorts desde 20/11/2026: v2 + verificação de naturalidade (pausa, entonação, tom e ritmo) com 6 tentativas e sem pós-produção (o montar_audio.py trata a voz).",
+    "referencia": "referencias/cv_131_longa.wav",
+    "tentativas": 8,
+    "exagero": 0.5,
+    "cfg": 0.4,
+    "temperatura": 0.75,
+    "pausa_ms": 280,
+    "corte": "conservador",
+    "natural": true,
+    "sem_pos": true
+  },
+  "verificacao": [
+    {
+      "paragrafo": 1,
+      "erro": 0.0,
+      "nota": 0.034,
+      "ouvido": "tortura, tráfico, terrorismo e os crimes hediondos são inafiançáveis, sem graça nem anistia,  mas prescrevem."
+    }
+  ]
+}

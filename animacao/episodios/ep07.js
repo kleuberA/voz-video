@@ -17,8 +17,9 @@ import { ICONE, compor, destacar, esc, legenda, selo } from "../pecas.js";
 
 const css = `
 .e7-topo { left: 20px; position: absolute; right: 20px; text-align: center; }
-.e7-afirma { font-size: 50px; }
-.e7-mark { background-image: linear-gradient(rgba(242,183,102,0.35), rgba(242,183,102,0.35)); background-position: 0 88%;
+.e7-afirma { font-size: 58px; }
+.e7-risco { background: var(--red); height: 4px; left: 0; position: absolute; top: 54%; border-radius: 2px; }
+.e7-mark { position: relative; background-image: linear-gradient(rgba(242,183,102,0.35), rgba(242,183,102,0.35)); background-position: 0 88%;
   background-repeat: no-repeat; border-radius: 3px; }
 .e7-botoes { display: flex; gap: 12px; justify-content: center; left: 28px; position: absolute; right: 28px; }
 .e7-bt { align-items: center; background: var(--chip); border: 1.5px solid var(--chip-line); border-radius: 14px; display: flex;
@@ -41,12 +42,12 @@ const css = `
   font-size: 16.5px; left: 24px; line-height: 1.55; padding: 16px 18px; position: absolute; right: 60px; }
 .e7-lei .rot { color: var(--cap-3); display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; margin-bottom: 8px; text-transform: uppercase; }
 .e7-troca { border-radius: 3px; padding: 0 2px; }
-.e7-passo { align-items: center; display: flex; gap: 12px; left: 28px; position: absolute; right: 64px; }
+.e7-passo { align-items: center; display: flex; gap: 10px; left: 24px; position: absolute; right: 50px; white-space: nowrap; }
 .e7-passo i { align-items: center; background: var(--amber); border-radius: 50%; color: #1b1407; display: flex; flex: none; font-size: 14px;
   font-style: normal; font-weight: 800; height: 28px; justify-content: center; width: 28px; }
 .e7-passo span { font-size: 17px; font-weight: 600; }
 .e7-botao-app { align-items: center; background: #1b201c; border: 1px solid rgba(255,255,255,0.16); border-radius: 9px; color: #e9e6df; display: inline-flex;
-  font-size: 14px; font-weight: 600; gap: 7px; padding: 8px 12px; position: relative; }
+  font-size: 13px; font-weight: 600; gap: 6px; padding: 8px 10px; position: relative; }
 .e7-botao-app svg { height: 15px; width: 15px; }
 .e7-criar { align-items: center; background: #22a055; border-radius: 12px; color: #fff; display: inline-flex; font-size: 18px; font-weight: 800; gap: 8px;
   padding: 12px 20px; box-shadow: 0 10px 30px -8px rgba(34,160,85,0.6); }
@@ -66,10 +67,9 @@ function quiz(tl, ctx) {
     const t = ctx.t, c = ctx.timing.cues;
     const revelou = c.reveal !== undefined && t >= c.reveal;
     const k = prog(t, 0.45, 0.6, EASE.inOut);
-    let afirma = marcar(destacar(ctx.gancho.tela), k);
-    // na revelação, o termo destacado é riscado
+    // na revelação, o termo destacado é riscado (linha vermelha que corre)
     const risco = revelou ? prog(t, c.reveal, 0.35, EASE.inOut) : 0;
-    if (risco > 0) afirma = afirma.replace(/(<span class="ambar e7-mark"[^>]*>)/, `$1<span style="background:linear-gradient(var(--red),var(--red)) no-repeat 0 55%/${(risco * 100).toFixed(1)}% 3px">`).replace(/(e7-mark"[^>]*><span[^>]*>[^<]+)/, "$1</span>");
+    const afirma = marcar(destacar(ctx.gancho.tela), k).replace(/<\/span>/, `<i class="e7-risco" style="width:${(risco * 100).toFixed(1)}%"></i></span>`);
     const pulso = (at) => 1 + 0.05 * Math.sin(Math.PI * clamp((t - at) / 0.4)) * (t > at && t < at + 0.4 ? 1 : 0);
     // contagem: 3, 2, 1 no anel (timer → reveal)
     let anel = "";
@@ -77,7 +77,7 @@ function quiz(tl, ctx) {
         const k2 = clamp((t - c.timer) / (c.reveal - c.timer));
         const n = Math.max(1, 3 - Math.floor(k2 * 3));
         const r = 28, perim = 2 * Math.PI * r;
-        anel = `<div class="e7-anel" style="top:384px;width:64px;height:64px;${pop(t, c.timer - 0.2, { from: 0.7 })}">
+        anel = `<div class="e7-anel" style="top:440px;width:64px;height:64px;${pop(t, c.timer - 0.2, { from: 0.7 })}">
           <svg viewBox="0 0 64 64" width="64" height="64"><circle cx="32" cy="32" r="${r}" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4"/>
           <circle cx="32" cy="32" r="${r}" fill="none" stroke="var(--amber)" stroke-width="4" stroke-linecap="round" stroke-dasharray="${perim.toFixed(1)}"
             stroke-dashoffset="${(perim * k2).toFixed(1)}" transform="rotate(-90 32 32)"/></svg><b>${n}</b></div>`;
@@ -85,16 +85,16 @@ function quiz(tl, ctx) {
     const cls = (certa) => (revelou ? (certa ? "certa" : "apagada") : "");
     const sobe = revelou ? spring(t, c.reveal, { dur: 0.5, bounce: 0.3 }) : 0;
     return `<style>${css}</style>
-    <div class="e7-topo" style="top:104px">
+    <div class="e7-topo" style="top:176px">
       <p class="kicker ambar">Pegadinha de prova · CF, art. 5º</p>
       <h1 class="titulo e7-afirma" style="margin-top:16px">${afirma}</h1>
     </div>
-    <div class="e7-botoes" style="top:300px">
-      <span class="e7-bt ${cls(false)}" style="${revelou ? "" : pop(t, 0.9, { from: 0.85 })};transform:scale(${pulso(2.2).toFixed(3)})">${revelou ? ICONE.nao : ""}Certo</span>
-      <span class="e7-bt ${cls(true)}" style="${revelou ? `transform:scale(${mix(1, 1.08, sobe * (1 - prog(t, c.reveal + 0.5, 0.4))).toFixed(3)})` : pop(t, 1.15, { from: 0.85 }) + `;transform:scale(${pulso(2.4).toFixed(3)})`}">${revelou ? ICONE.ok : ""}Errado</span>
+    <div class="e7-botoes" style="top:368px">
+      <span class="e7-bt ${cls(false)}" style="transform:scale(${(pulso(0.9) * pulso(2.2)).toFixed(3)})">${revelou ? ICONE.nao : ""}Certo</span>
+      <span class="e7-bt ${cls(true)}" style="${revelou ? `transform:scale(${mix(1, 1.08, sobe * (1 - prog(t, c.reveal + 0.5, 0.4))).toFixed(3)})` : `transform:scale(${(pulso(1.15) * pulso(2.4)).toFixed(3)})`}">${revelou ? ICONE.ok : ""}Errado</span>
     </div>
     ${anel}
-    <div class="carimbo claro" style="font-size:30px;left:118px;top:392px;${stamp(t, c.prescreve - 0.1, { rot: -6 })}">Prescreve</div>`;
+    <div class="carimbo claro" style="font-size:30px;left:118px;top:446px;${stamp(t, c.prescreve - 0.1, { rot: -6 })}">Prescreve</div>`;
 }
 
 // ── Cena 2: só dois imprescritíveis ────────────────────────────────────────────────────────────
@@ -171,7 +171,7 @@ function cta(tl, ctx) {
     <div class="e7-passo" style="top:272px;${rise(t, c.toca - 0.25, { y: 10 })}"><i>2</i><span>Art. 5º →</span>
       <span class="e7-botao-app">${LISTA}Treinar literalidade${CADEADO}
         ${toque >= 0 ? `<span class="e7-toque" style="left:${50}%;top:50%;opacity:${(1 - toque).toFixed(3)};transform:translate(-50%,-50%) scale(${mix(0.4, 1.6, EASE.out(toque)).toFixed(3)})"></span>` : ""}</span></div>
-    <div class="e7-passo" style="top:326px;${rise(t, c.cria - 0.15, { y: 10 })}"><i>3</i><span class="e7-criar" style="transform:scale(${(1 + 0.05 * Math.sin(Math.PI * clamp((t - c.cria - 0.3) / 0.5))).toFixed(3)})">Criar conta grátis →</span></div>
+    <div class="e7-passo" style="top:334px;${rise(t, c.cria - 0.15, { y: 10 })}"><i>3</i><span class="e7-criar" style="transform:scale(${(1 + 0.05 * Math.sin(Math.PI * clamp((t - c.cria - 0.3) / 0.5))).toFixed(3)})">Criar conta grátis →</span></div>
     <div style="left:20px;position:absolute;right:60px;text-align:center;top:410px;${pop(t, c.gratis, { from: 0.8 })}">
       <span class="chip" style="border-color:rgba(242,183,102,0.5);color:var(--amber);font-size:13px">${esc(ctx.oferta.teste.replace(", sem cartão", " · sem cartão"))}</span>
     </div>

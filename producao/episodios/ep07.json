@@ -25,13 +25,13 @@
     }
   ],
   "falas": [
-    "Errado. Tortura prescreve.",
+    "Errado! A tortura prescreve, sim.",
     "Na Constituição, só dois crimes são imprescritíveis: racismo e ação de grupos armados contra a ordem constitucional.",
-    "Tortura, tráfico, terrorismo e crimes hediondos são inafiançáveis, sem graça nem anistia. Mas prescrevem.",
+    "Tortura, tráfico, terrorismo e os crimes hediondos são inafiançáveis, sem graça nem anistia. Mas prescrevem.",
     "A banca troca uma palavra e derruba quem só leu. O jeito é treinar a letra da lei."
   ],
   "cta": {
-    "fala": "Link no perfil: toca em treinar e cria sua conta grátis no Estuda Leges.",
+    "fala": "Link no perfil: toque em treinar e crie sua conta grátis no Estuda Leges.",
     "tela": "Treinar literalidade → Criar conta grátis · link no perfil"
   },
   "cenas": [
@@ -109,7 +109,10 @@
   ],
   "riscos_de_voz": [
     "'imprescritíveis', 'inafiançáveis' e 'anistia' são longas: escutar. Se errar sempre, quebrar a frase.",
-    "'Estuda Leges' no fim da chamada (no meio da frase saiu 'Estudo Alegis' no #6)."
+    "'Estuda Leges' no fim da chamada (no meio da frase saiu 'Estudo Alegis' no #6).",
+    "Fala 2 curta ('Errado. Tortura prescreve.') saiu lenta e monótona: alongada.",
+    "'crimes hediondos' saiu 'de ondos' em 6 tentativas: 'os crimes hediondos'.",
+    "A voz fala 'toque'/'crie' mesmo com 'toca'/'cria' no texto: a chamada usa a forma que ela fala."
   ],
   "link": {
     "lei": "constituicao-federal",

@@ -6,7 +6,10 @@
   "falas": 6,
   "velocidade": 1.0,
   "velocidade_fala": {
-    "1": 1.1
+    "1": 1.1,
+    "2": 1.1,
+    "4": 1.1,
+    "5": 0.88
   },
   "lead": 0.05,
   "gaps": {
@@ -22,7 +25,7 @@
     "dur": 1.5,
     "post": 0.05
   },
-  "cauda": 0.9,
+  "cauda": 0.7,
   "cues": {
     "certo": {
       "seg": 1,
@@ -30,11 +33,11 @@
     },
     "errado": {
       "seg": 2,
-      "word": "Errado."
+      "word": "Errado!"
     },
     "prescreve": {
       "seg": 2,
-      "word": "prescreve."
+      "word": "prescreve,"
     },
     "racismo": {
       "seg": 3,
@@ -90,11 +93,11 @@
     },
     "toca": {
       "seg": 6,
-      "word": "toca"
+      "word": "toque"
     },
     "cria": {
       "seg": 6,
-      "word": "cria"
+      "word": "crie"
     },
     "gratis": {
       "seg": 6,
@@ -140,8 +143,6 @@
   },
   "quentes": [
     "imprescritível.",
-    "errado.",
-    "prescreve.",
     "dois",
     "racismo",
     "grupos",
@@ -150,7 +151,9 @@
     "treinar",
     "perfil:",
     "grátis",
-    "leges."
+    "leges.",
+    "errado!",
+    "prescreve,"
   ],
   "sfx": [
     [
