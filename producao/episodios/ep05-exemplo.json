@@ -1,0 +1,64 @@
+{
+  "_sobre": "Ficha do episódio #5 refeita no formato novo, como EXEMPLO. As fontes estão sem 'conferido_por' de propósito: o verificador bloqueia até alguém conferir no Planalto.",
+  "id": "ep05",
+  "titulo_interno": "3 cobranças do restaurante que você não é obrigado a pagar",
+  "formato": "dia_a_dia",
+  "campanha": "direitos_do_dia_a_dia",
+  "problema": "A pessoa paga taxa de serviço, consumação mínima e multa de comanda achando que é obrigatório.",
+  "ganchos": [
+    {"id": "A", "fala": "Três cobranças do restaurante que você não é obrigado a pagar. A terceira quase ninguém sabe.", "tela": "3 cobranças que você NÃO precisa pagar"},
+    {"id": "B", "fala": "Perdeu a comanda? Você não paga trezentos reais de multa.", "tela": "Perdeu a comanda? Não pague a multa."}
+  ],
+  "falas": [
+    "Um: os dez por cento do garçom. São opcionais. Nenhuma lei obriga o cliente a pagar.",
+    "Dois: consumação mínima. É prática abusiva, proibida pelo Código de Defesa do Consumidor, no artigo trinta e nove.",
+    "Três: multa por perder a comanda. Controlar o consumo é obrigação do restaurante. Você paga só o que consumiu."
+  ],
+  "cta": {
+    "fala": "Salva pra mostrar na próxima conta. O Código do Consumidor inteiro tá grátis no Estuda Leges. Link no perfil.",
+    "tela": "A lei inteira, grátis · link no perfil"
+  },
+  "cenas": [
+    {"id": "conta", "texto_tela": "Conta com os 3 itens; carimbos OPCIONAL, PROIBIDA, ABUSIVA; total cai de R$ 514,20 para R$ 122,00", "dura_aprox_s": 26},
+    {"id": "cta", "texto_tela": "Art. 39 do CDC na página pública do Estuda Leges", "dura_aprox_s": 5}
+  ],
+  "fontes": [
+    {
+      "norma": "Lei nº 8.078/1990 (Código de Defesa do Consumidor)",
+      "dispositivo": "art. 39, I",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "texto_literal": "condicionar o fornecimento de produto ou de serviço ao fornecimento de outro produto ou serviço, bem como, sem justa causa, a limites quantitativos;",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Lei nº 8.078/1990 (Código de Defesa do Consumidor)",
+      "dispositivo": "art. 39, V",
+      "url": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "texto_literal": "exigir do consumidor vantagem manifestamente excessiva;",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Lei nº 13.419/2017 (gorjeta)",
+      "dispositivo": "art. 1º (altera o art. 457 da CLT)",
+      "url": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2017/lei/l13419.htm",
+      "texto_literal": "",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "link": {"lei": "codigo-de-defesa-do-consumidor", "artigo": "art-39"},
+  "publicacao": {
+    "titulo_youtube": "Você NÃO é obrigado a pagar isso no restaurante 😳",
+    "titulos_alternativos": ["Perdeu a comanda? Não pague a multa", "Os 10% do garçom são obrigatórios?"],
+    "descricao": "3 cobranças que muito restaurante faz e você não é obrigado a pagar:\n1) os 10% do garçom (são opcionais);\n2) consumação mínima (prática abusiva, CDC art. 39, I);\n3) multa por perder a comanda (vantagem excessiva, CDC art. 39, V): você paga só o que consumiu.",
+    "comentario_fixado": "E aí: você paga os 10% do garçom ou não? 👇",
+    "legenda_instagram": "Salva pra mostrar na próxima conta 🔖\n\n3 cobranças do restaurante que você NÃO é obrigado a pagar. A 3ª quase ninguém sabe.\n\nVocê paga os 10%? Comenta 👇",
+    "palavra_dm": "CONTA",
+    "hashtags": ["#direitodoconsumidor", "#procon", "#restaurante", "#seusdireitos", "#cdc"],
+    "enquete_story": "Você paga os 10% do garçom? (Sim / Só se o serviço foi bom)",
+    "melhor_horario": "quinta ou sexta, 11h–12h ou 18h–20h"
+  },
+  "extra_s": 2.0
+}

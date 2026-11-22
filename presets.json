@@ -1,5 +1,5 @@
 {
-  "padrao": "v1",
+  "padrao": "shorts",
   "presets": {
     "v1": {
       "descricao": "Versão 01 aprovada em 16/11/2026: voz clonada CV-131. CONGELADA, não alterar.",
@@ -45,6 +45,18 @@
         "ganho_presenca_db": 1.2,
         "deesser": 0.25
       }
+    },
+    "shorts": {
+      "descricao": "Padrão dos Shorts desde 20/11/2026: v2 + verificação de naturalidade (pausa, entonação, tom e ritmo) com 6 tentativas e sem pós-produção (o montar_audio.py trata a voz).",
+      "referencia": "referencias/cv_131_longa.wav",
+      "tentativas": 6,
+      "exagero": 0.5,
+      "cfg": 0.4,
+      "temperatura": 0.75,
+      "pausa_ms": 280,
+      "corte": "conservador",
+      "natural": true,
+      "sem_pos": true
     }
   }
 }

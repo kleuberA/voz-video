@@ -13,3 +13,7 @@ __pycache__/
 # versões aprovadas ficam guardadas
 !versoes/**/*.mp3
 !versoes/**/*.flac
+
+# animação: intermediários e rascunhos (tempo estimado, sem narração)
+/animacao/out/
+videos/*/*-rascunho*

@@ -1,0 +1,231 @@
+{
+  "titulo": "Se arrependeu da Black Friday? Você tem 7 dias (CDC, art. 49)",
+  "ficha": "producao/episodios/ep06.json",
+  "animacao": "ep06",
+  "falas": 6,
+  "velocidade": 1.0,
+  "lead": 0.05,
+  "gaps": {
+    "2": 0.2,
+    "3": 0.2,
+    "4": 0.2,
+    "5": 0.2,
+    "6": 0.2
+  },
+  "cauda": 0.9,
+  "cues": {
+    "capa": {
+      "inicio": 1,
+      "offset": 1.2
+    },
+    "um": {
+      "seg": 2,
+      "word": "Um:"
+    },
+    "internet": {
+      "seg": 2,
+      "word": "internet"
+    },
+    "telefone": {
+      "seg": 2,
+      "word": "telefone?"
+    },
+    "motivo": {
+      "seg": 2,
+      "word": "motivo.",
+      "campo": "e"
+    },
+    "dois": {
+      "seg": 3,
+      "word": "Dois:"
+    },
+    "entrega": {
+      "seg": 3,
+      "word": "entrega,"
+    },
+    "compra": {
+      "seg": 3,
+      "word": "compra."
+    },
+    "tres": {
+      "seg": 4,
+      "word": "Três:"
+    },
+    "tudo": {
+      "seg": 4,
+      "word": "tudo"
+    },
+    "corrigido": {
+      "seg": 4,
+      "word": "corrigido."
+    },
+    "estornar": {
+      "seg": 4,
+      "word": "cartão,",
+      "campo": "e"
+    },
+    "fisica": {
+      "seg": 5,
+      "word": "física?"
+    },
+    "naovale": {
+      "seg": 5,
+      "word": "não"
+    },
+    "salva": {
+      "seg": 6,
+      "word": "Salva"
+    },
+    "gratis": {
+      "seg": 6,
+      "word": "grátis"
+    },
+    "perfil": {
+      "seg": 6,
+      "word": "perfil:",
+      "campo": "s"
+    }
+  },
+  "cenas": [
+    [
+      "pedido",
+      null
+    ],
+    [
+      "regras",
+      {
+        "inicio": 2,
+        "offset": -0.2
+      }
+    ],
+    [
+      "virada",
+      {
+        "inicio": 5,
+        "offset": 0.05
+      }
+    ],
+    [
+      "cta",
+      {
+        "inicio": 6,
+        "offset": 0.1
+      }
+    ]
+  ],
+  "legenda": {
+    "Black Friday": "Black Friday",
+    "sete": "7"
+  },
+  "quentes": [
+    "sete",
+    "desistir",
+    "motivo.",
+    "entrega,",
+    "compra.",
+    "tudo",
+    "estornar.",
+    "física?",
+    "vale.",
+    "grátis",
+    "perfil:",
+    "leges."
+  ],
+  "sfx": [
+    [
+      "whoosh",
+      "cena:regras",
+      -0.2,
+      0.9
+    ],
+    [
+      "whoosh",
+      "cena:virada",
+      -0.2,
+      0.9
+    ],
+    [
+      "whoosh",
+      "cena:cta",
+      -0.2,
+      0.9
+    ],
+    [
+      "pluck:880",
+      "cue:um",
+      0,
+      0.8
+    ],
+    [
+      "click",
+      "cue:internet",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:telefone",
+      0,
+      0.9
+    ],
+    [
+      "pluck:987.8",
+      "cue:dois",
+      0,
+      0.8
+    ],
+    [
+      "pluck:1318.5",
+      "cue:entrega",
+      0,
+      0.8
+    ],
+    [
+      "click",
+      "cue:compra",
+      0,
+      0.9
+    ],
+    [
+      "pluck:1174.7",
+      "cue:tres",
+      0,
+      0.8
+    ],
+    [
+      "acerto",
+      "cue:estornar",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:estornar",
+      0.12,
+      0.6
+    ],
+    [
+      "boom",
+      "cue:naovale",
+      0,
+      0.5
+    ],
+    [
+      "click",
+      "cue:salva",
+      0,
+      1
+    ],
+    [
+      "pluck:1174.7",
+      "cue:perfil",
+      0,
+      1.2
+    ]
+  ],
+  "velocidade_fala": {
+    "3": 0.95,
+    "4": 0.93
+  },
+  "capa_t": 2.3
+}
