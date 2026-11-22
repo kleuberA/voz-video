@@ -38,6 +38,14 @@ def gerar(f):
     add(f"Formato: **{f.get('formato')}** · campanha `{f.get('campanha', '')}`. "
         "O mesmo vídeo serve para Shorts, Reels e TikTok.\n")
 
+    ep = f["id"]
+    add("## Arquivos\n")
+    add(f"| Arquivo | Uso |\n|---|---|")
+    add(f"| `estuda-leges-{ep}.mp4` | Gancho A, com trilha: Shorts, Reels e TikTok. |")
+    add(f"| `estuda-leges-{ep}-sem-trilha.mp4` | Gancho A só com voz e efeitos, para pôr uma música em alta no app. |")
+    add(f"| `estuda-leges-{ep}-B.mp4` | Gancho B: trial reel do Instagram (só para não seguidores). |")
+    add(f"| `estuda-leges-{ep}-capa.png` (e `-B-capa.png`) | Capa do Reels. No Shorts, escolha o quadro de ~2 s no app. |")
+    add("\nEnquanto os arquivos tiverem `-rascunho` no nome, **não publique**: falta conferir as fontes.\n")
     add("## ✅ Antes de publicar\n")
     add(f"- [ ] `python producao/qa_video.py <pasta do episódio>` sem ❌.")
     add(f"- [ ] O link abre o artigo certo: {link(f, 'youtube_descricao').split('?')[0]}")

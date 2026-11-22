@@ -214,5 +214,6 @@ const TRANSICOES = { regras: "push", virada: "zoom", cta: "fade" };
 export function quadro(t, ctx) {
     const cenas = ctx.timing.scenes;
     // legenda some no fim (sobra só a chamada na tela)
-    return compor(t, cenas, DESENHAR, TRANSICOES, ctx) + legenda(t, ctx.timing.chunks);
+    // na capa (ctx.capa) não há legenda: só a manchete e o pedido
+    return compor(t, cenas, DESENHAR, TRANSICOES, ctx) + (ctx.capa ? "" : legenda(t, ctx.timing.chunks));
 }

@@ -6,7 +6,8 @@
  *   node animacao/render.mjs stills videos/short-ep06-black-friday A 0,1.5,3,8,14,20,26,30
  *   node animacao/render.mjs video  videos/short-ep06-black-friday A
  *   node animacao/render.mjs encode videos/short-ep06-black-friday A
- *   node animacao/render.mjs tudo   videos/short-ep06-black-friday A       # video + encode
+ *   node animacao/render.mjs tudo   videos/short-ep06-black-friday A       # video + encode + capa
+ *   node animacao/render.mjs capa   videos/short-ep06-black-friday A       # só a capa
  *
  * Tempos: usa <ep>/timing[-B].json (da narração, montar_audio.py); sem ele, o timing-provisorio
  * (tempo_provisorio.py) e o vídeo sai marcado RASCUNHO.
@@ -51,14 +52,14 @@ function run(cmd, args) {
     });
 }
 
-async function abrir(ep, variante) {
+async function abrir(ep, variante, extra = "") {
     const srv = await servidor();
     const porta = srv.address().port;
     const browser = await chromium.launch();
     const page = await browser.newPage({ viewport: { width: PALCO.width, height: PALCO.height }, deviceScaleFactor: PALCO.scale });
     page.on("pageerror", (e) => console.error("pageerror:", e.message));
     page.on("console", (m) => m.type() === "error" && console.error("console:", m.text()));
-    await page.goto(`http://127.0.0.1:${porta}/animacao/pagina.html?ep=${encodeURIComponent(ep)}&variante=${variante}`, { waitUntil: "load" });
+    await page.goto(`http://127.0.0.1:${porta}/animacao/pagina.html?ep=${encodeURIComponent(ep)}&variante=${variante}${extra}`, { waitUntil: "load" });
     await page.waitForFunction(() => Boolean(window.__video), null, { timeout: 30000 });
     const info = await page.evaluate(() => ({ fps: window.__video.fps, quadros: window.__video.quadros, duracao: window.__video.duracao, timing: window.__video.timing, capa: window.__video.capa, rascunho: window.__video.rascunho }));
     return { srv, browser, page, info };
@@ -128,18 +129,36 @@ async function encode(ep, variante, info) {
         else continue;
         console.log(`${path.relative(RAIZ, saida)}  ${(statSync(saida).size / 1024 / 1024).toFixed(1)} MB${existsSync(audio) ? "" : " (mudo: falta a narração)"}`);
     }
-    const capa = `${base}-capa.png`;
-    await run("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(info.capa), "-i", mkv, "-frames:v", "1", "-pix_fmt", "rgb24", capa]);
-    console.log(path.relative(RAIZ, capa));
+    await capa(ep, variante);
+}
+
+/**
+ * Capa: o quadro de `capa_t` (config.json) sem legenda, com tudo do gancho já na tela. Feita para
+ * o Reels (que aceita capa enviada) e para a grade do Instagram, que mostra o centro em 3:4:
+ * confira que manchete e objeto ficam entre 240 e 1680 px de altura.
+ */
+async function capa(ep, variante) {
+    const { srv, browser, page, info } = await abrir(ep, variante, "&capa=1");
+    // quadros anteriores primeiro (molas e carimbos chegam ao estado certo)
+    const alvo = Math.round(info.capa * info.fps);
+    for (let n = Math.max(0, alvo - 30); n <= alvo; n += 3) await page.evaluate((q) => window.__video.setFrame(q), n);
+    await page.evaluate((q) => window.__video.setFrame(q), alvo);
+    const suf = (variante === "A" ? "" : `-${variante}`) + (info.rascunho ? "-rascunho" : "");
+    const arq = path.join(RAIZ, ep, `estuda-leges-${idDo(ep)}${suf}-capa.png`);
+    await page.screenshot({ path: arq, clip });
+    await browser.close();
+    srv.close();
+    console.log(path.relative(RAIZ, arq));
 }
 
 const [modo, ep, variante = "A", lista = ""] = process.argv.slice(2);
 if (!ep || !existsSync(path.join(RAIZ, ep, "config.json"))) {
-    console.log("Uso: node animacao/render.mjs <stills|video|encode|tudo> <pasta do episódio> [A|B] [t1,t2,...]");
+    console.log("Uso: node animacao/render.mjs <stills|video|encode|tudo|capa> <pasta do episódio> [A|B] [t1,t2,...]");
     process.exit(1);
 }
 if (modo === "stills") await stills(ep, variante, lista.split(",").filter(Boolean).map(Number));
 else if (modo === "video") await video(ep, variante);
 else if (modo === "encode") await encode(ep, variante);
+else if (modo === "capa") await capa(ep, variante);
 else if (modo === "tudo") await encode(ep, variante, await video(ep, variante));
 else console.log("Modo desconhecido:", modo);
