@@ -1,0 +1,111 @@
+{
+  "_sobre": "Piloto do formato A (producao/ESTRATEGIA_CONVERSAO.md): desafio de literalidade, sem oferta falada. Textos da CF copiados do Planalto em 2026-11-23. Fontes pendentes de conferência humana.",
+  "id": "ep08",
+  "titulo_interno": "Desafio de literalidade #1: complete a Constituição em 3 segundos",
+  "formato": "desafio",
+  "campanha": "desafio_literalidade",
+  "objetivo": "curiosidade",
+  "problema": "O concurseiro lê a lei, mas não sabe se lembra da letra exata. Prazos e quóruns são exatamente o que a banca troca.",
+  "por_que_converte": [
+    "Entrega um teste completo de memória, que é o que o concurseiro faz para estudar, em forma de jogo.",
+    "O cartão do desafio é o flashcard 'Ocultar trecho' do app: quem gostar do formato encontra a ferramenta no perfil, sem ninguém vender nada.",
+    "Pede comentário com o placar (engajamento) e é numerado como série (volta no próximo)."
+  ],
+  "ganchos": [
+    {
+      "id": "A",
+      "fala": "Complete o artigo em três segundos.",
+      "tela": "Complete a lei em *3 segundos*."
+    },
+    {
+      "id": "B",
+      "fala": "Três artigos da Constituição, uma palavra faltando. Você completa?",
+      "tela": "Uma palavra faltando. *Você completa?*"
+    }
+  ],
+  "falas": [
+    "Primeira. Emenda à Constituição: aprovada com quantos votos?",
+    "Três quintos. Nas duas Casas, em dois turnos.",
+    "Segunda. O prazo do Presidente pra vetar um projeto.",
+    "Quinze dias úteis. Úteis!",
+    "Terceira. Quanto tempo vale uma medida provisória?",
+    "Sessenta dias, prorrogáveis uma vez."
+  ],
+  "cta": {
+    "fala": "Quantas você acertou? Comenta aí.",
+    "tela": "Quantas você acertou? · desafio #1"
+  },
+  "cenas": [
+    {
+      "id": "desafio",
+      "texto_tela": "Quadro 0: título do desafio + o cartão da rodada 1 já com a lacuna. Cada rodada: cartão com o trecho literal e [ ____ ], anel de 3 s, revelação com grifo âmbar e placar 1/3, 2/3, 3/3.",
+      "dura_aprox_s": 26
+    },
+    {
+      "id": "fim",
+      "texto_tela": "Os três cartões resolvidos lado a lado + 'Quantas você acertou?'. No canto, discreto: 'cartões do Estuda Leges · treino de literalidade' (sem oferta).",
+      "dura_aprox_s": 4
+    }
+  ],
+  "fontes": [
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 60, § 2º",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "§ 2º A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros.",
+      "sustenta": "rodada 1 (três quintos, duas Casas, dois turnos)",
+      "copiado_em": "2026-11-23",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 66, § 1º",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "§ 1º Se o Presidente da República considerar o projeto, no todo ou em parte, inconstitucional ou contrário ao interesse público, vetá-lo-á total ou parcialmente, no prazo de quinze dias úteis, contados da data do recebimento, e comunicará, dentro de quarenta e oito horas, ao Presidente do Senado Federal os motivos do veto.",
+      "sustenta": "rodada 2 (quinze dias úteis)",
+      "copiado_em": "2026-11-23",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 62, § 3º",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "§ 3º As medidas provisórias, ressalvado o disposto nos §§ 11 e 12 perderão eficácia, desde a edição, se não forem convertidas em lei no prazo de sessenta dias, prorrogável, nos termos do § 7º, uma vez por igual período, devendo o Congresso Nacional disciplinar, por decreto legislativo, as relações jurídicas delas decorrentes.",
+      "sustenta": "rodada 3 (sessenta dias, prorrogável uma vez)",
+      "copiado_em": "2026-11-23",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "revisao_humana": [
+    "Rodada 3: 'sessenta dias, prorrogáveis uma vez' resume o § 3º ('prorrogável ... uma vez por igual período'); confirmar que a fala não sugere outro prazo de prorrogação.",
+    "Os trechos na tela são recortes literais (com reticências) dos dispositivos acima."
+  ],
+  "link": {
+    "lei": "constituicao-federal",
+    "artigo": "art-60"
+  },
+  "publicacao": {
+    "titulo_youtube": "Complete a Constituição em 3 segundos | Desafio #1",
+    "titulos_alternativos": [
+      "Você lembra a letra da lei? Desafio de literalidade",
+      "3 artigos, 1 palavra faltando. Você completa?"
+    ],
+    "descricao": "Desafio de literalidade #1: prazos e quóruns da Constituição.\n\n1) Emenda à Constituição: três quintos, nas duas Casas, em dois turnos (art. 60, § 2º).\n2) Veto: quinze dias úteis (art. 66, § 1º).\n3) Medida provisória: sessenta dias, prorrogável uma vez por igual período (art. 62, § 3º).\n\nOs cartões do desafio são do treino de literalidade do Estuda Leges.",
+    "comentario_fixado": "Quantas você acertou: 0, 1, 2 ou 3? 👇 Qual artigo você quer no desafio #2?",
+    "legenda_instagram": "Desafio de literalidade #1 ⏱️ Complete a Constituição em 3 segundos.\n\nQuantas você acertou? Comenta o placar 👇",
+    "palavra_dm": "DESAFIO",
+    "hashtags": [
+      "#concursopublico",
+      "#leiseca",
+      "#direitoconstitucional",
+      "#concurseiros",
+      "#oab"
+    ],
+    "enquete_story": "Quantas você acertou? (3/3 · 2/3 · 1/3 · 0)",
+    "melhor_horario": "dias úteis entre 19h e 22h ou domingo à tarde (quando o concurseiro estuda)"
+  },
+  "extra_s": 9.0
+}

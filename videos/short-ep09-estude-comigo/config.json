@@ -1,0 +1,143 @@
+{
+  "titulo": "Estude comigo: 30 s de lei seca (CF, art. 5º, LXVIII e LXIX)",
+  "ficha": "producao/episodios/ep09.json",
+  "animacao": "ep09",
+  "sem_narracao": true,
+  "capa_t": 1.0,
+  "duracao": 30,
+  "bpm": 78,
+  "cenas": [
+    [
+      "abre",
+      0
+    ],
+    [
+      "grifa",
+      6.0
+    ],
+    [
+      "flashcard",
+      13.0
+    ],
+    [
+      "testa",
+      19.0
+    ],
+    [
+      "fim",
+      26.0
+    ]
+  ],
+  "cues": {
+    "sel1": 7.0,
+    "barra1": 8.3,
+    "cor1": 9.0,
+    "sel2": 10.0,
+    "cor2": 11.6,
+    "botaoFlash": 13.6,
+    "ocultar": 15.2,
+    "criar": 17.4,
+    "mostrar": 21.2,
+    "revela": 21.5,
+    "bom": 23.6,
+    "volta": 24.1
+  },
+  "sfx": [
+    [
+      "whoosh",
+      "cena:grifa",
+      -0.2,
+      0.6
+    ],
+    [
+      "marca",
+      "cue:sel1",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:cor1",
+      0,
+      0.9
+    ],
+    [
+      "marca",
+      "cue:sel2",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:cor2",
+      0,
+      0.9
+    ],
+    [
+      "whoosh",
+      "cena:flashcard",
+      -0.2,
+      0.6
+    ],
+    [
+      "click",
+      "cue:botaoFlash",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:ocultar",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:criar",
+      0,
+      1.0
+    ],
+    [
+      "pluck:880",
+      "cue:criar",
+      0.1,
+      0.9
+    ],
+    [
+      "whoosh",
+      "cena:testa",
+      -0.2,
+      0.6
+    ],
+    [
+      "click",
+      "cue:mostrar",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:bom",
+      0,
+      1.0
+    ],
+    [
+      "acerto",
+      "cue:bom",
+      0.1,
+      0.8
+    ],
+    [
+      "whoosh",
+      "cena:fim",
+      -0.2,
+      0.6
+    ],
+    [
+      "brilho",
+      "cena:fim",
+      0.4,
+      0.5
+    ]
+  ]
+}

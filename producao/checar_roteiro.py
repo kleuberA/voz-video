@@ -28,7 +28,7 @@ PRONUNCIA = json.loads((AQUI / "pronuncia.json").read_text(encoding="utf-8"))["t
 
 PPM = 165            # palavras por minuto da voz v2 (medido)
 PAUSA_FALAS = 0.30   # segundos entre falas na montagem
-FORMATOS = {"dia_a_dia", "pegadinha", "tecnica", "demonstracao"}
+FORMATOS = {"dia_a_dia", "pegadinha", "tecnica", "demonstracao", "desafio", "estude_comigo"}
 # formatos em que a chamada pode ser mais longa (o produto é o assunto)
 CTA_MAX = {"demonstracao": 0.25}
 CTA_MAX_PADRAO = 0.15
@@ -141,11 +141,37 @@ def checar_pronuncia(nome, texto, r):
             r.aviso(f"{nome}: frase com {len(palavras(fr))} palavras. Quebre em frases de até 20.")
 
 
+def checar_sem_narracao(f, r):
+    """Vídeo sem voz (ex.: "Estude comigo"): só tela, letreiros e música. Valem as mesmas travas de
+    fonte e de promessa; não há fala para medir ritmo ou pronúncia."""
+    for campo in ("id", "problema", "ganchos", "letreiros"):
+        if not f.get(campo):
+            r.erro(f"Falta '{campo}'.")
+    if r.erros:
+        return r
+    if len(f["ganchos"]) < 2:
+        r.erro("Escreva dois ganchos (A e B).")
+    for g in f["ganchos"]:
+        if len(palavras(g.get("tela", ""))) > 9:
+            r.aviso(f"gancho {g.get('id')}: {len(palavras(g['tela']))} palavras na tela (até 8).")
+    for i, l in enumerate(f["letreiros"], 1):
+        if len(palavras(l)) > 7:
+            r.aviso(f"letreiro {i}: {len(palavras(l))} palavras. Letreiro de tela precisa ser lido em 1 s (até 6).")
+    r.dado(f"Sem narração: {len(f['letreiros'])} letreiros, duração prevista {f.get('duracao_s', '?')} s.")
+    checar_fontes(f, r)
+    checar_textos(f, r, [g.get("tela", "") for g in f["ganchos"]] + list(f["letreiros"]))
+    if not (f.get("publicacao") or {}).get("comentario_fixado"):
+        r.aviso("Sem comentário fixado.")
+    return r
+
+
 def checar(f):
     r = Relatorio()
     formato = f.get("formato")
     if formato not in FORMATOS:
         r.erro(f"formato deve ser um de {sorted(FORMATOS)}.")
+    if f.get("sem_narracao"):
+        return checar_sem_narracao(f, r)
     for campo in ("id", "problema", "ganchos", "falas", "cta"):
         if not f.get(campo):
             r.erro(f"Falta '{campo}'.")

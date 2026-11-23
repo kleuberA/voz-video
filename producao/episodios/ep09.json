@@ -1,0 +1,84 @@
+{
+  "_sobre": "Piloto do formato B (producao/ESTRATEGIA_CONVERSAO.md): 'Estude comigo', sessão de estudo na tela do app, sem voz. Textos da CF copiados do Planalto em 2026-11-23; fontes pendentes de conferência humana.",
+  "id": "ep09",
+  "titulo_interno": "Estude comigo: 30 segundos de lei seca (habeas corpus e mandado de segurança)",
+  "formato": "estude_comigo",
+  "sem_narracao": true,
+  "campanha": "estude_comigo",
+  "objetivo": "curiosidade",
+  "duracao_s": 30,
+  "problema": "O concurseiro lê o inciso e esquece. Quer ver um jeito rápido de estudar que faça lembrar no dia seguinte.",
+  "por_que_converte": [
+    "Formato 'study with me' é nativo das plataformas e não parece anúncio.",
+    "A tela do app fica à vista o tempo todo: ler, grifar, virar flashcard, revisar. Quem gosta pergunta 'que app é esse?'.",
+    "Sem voz: não depende da narração sintética."
+  ],
+  "ganchos": [
+    {
+      "id": "A",
+      "tela": "30 s de lei seca que você *lembra amanhã*."
+    },
+    {
+      "id": "B",
+      "tela": "Como eu estudo um inciso em *30 segundos*."
+    }
+  ],
+  "letreiros": [
+    "Ler o inciso",
+    "Grifar o que a banca troca",
+    "Virar flashcard",
+    "Testar a memória",
+    "Volta amanhã pra revisão"
+  ],
+  "fontes": [
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, LXVIII",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "LXVIII - conceder-se-á \"habeas-corpus\" sempre que alguém sofrer ou se achar ameaçado de sofrer violência ou coação em sua liberdade de locomoção, por ilegalidade ou abuso de poder;",
+      "sustenta": "texto do leitor e do flashcard",
+      "copiado_em": "2026-11-23",
+      "conferido_por": "",
+      "conferido_em": ""
+    },
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, LXIX",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "LXIX - conceder-se-á mandado de segurança para proteger direito líquido e certo, não amparado por \"habeas-corpus\" ou \"habeas-data\", quando o responsável pela ilegalidade ou abuso de poder for autoridade pública ou agente de pessoa jurídica no exercício de atribuições do Poder Público;",
+      "sustenta": "texto do leitor (segundo grifo)",
+      "copiado_em": "2026-11-23",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "fidelidade_app": [
+    "Botões de revisão e intervalos de um card novo como em lib/flashcards/srs.ts: Errei = agora; Difícil e Bom = 1 dia; Fácil = 4 dias.",
+    "Barra de seleção com cores de grifo, 'Flashcard' e 'Copiar'; diálogo 'Criar flashcard' com o tipo 'Ocultar trecho' (create-flashcard-button.tsx).",
+    "A tela é uma recriação da interface (o app real não roda neste ambiente); o render da landing/juris-app pode substituir por capturas reais."
+  ],
+  "link": {
+    "lei": "constituicao-federal",
+    "artigo": "art-5"
+  },
+  "publicacao": {
+    "titulo_youtube": "Estude comigo: 30 s de lei seca (habeas corpus)",
+    "titulos_alternativos": [
+      "Como eu estudo um inciso em 30 segundos",
+      "30 s de lei seca que você lembra amanhã"
+    ],
+    "descricao": "Estude comigo: CF, art. 5º, LXVIII (habeas corpus) e LXIX (mandado de segurança).\n\n1) Ler o inciso.\n2) Grifar o que a banca troca: 'liberdade de locomoção' e 'direito líquido e certo'.\n3) Virar o trecho em flashcard (ocultar trecho).\n4) Testar a memória. O card volta amanhã para revisão.\n\nEstudando no Estuda Leges.",
+    "comentario_fixado": "App: Estuda Leges (link no perfil). Qual inciso você quer no próximo? 👇",
+    "legenda_instagram": "Estude comigo: 30 s de lei seca ⏱️ Ler, grifar, virar flashcard, testar.\n\nQual artigo você quer no próximo? 👇",
+    "palavra_dm": "APP",
+    "hashtags": [
+      "#estudecomigo",
+      "#concursopublico",
+      "#leiseca",
+      "#concurseiros",
+      "#studywithme"
+    ],
+    "enquete_story": "Você revisa a lei seca com flashcard? (Sim / Ainda não)",
+    "melhor_horario": "noite (19h–22h) ou começo da manhã (6h–7h), horários de estudo"
+  }
+}
