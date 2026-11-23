@@ -5,7 +5,7 @@
   "sem_narracao": true,
   "capa_t": 1.0,
   "duracao": 30,
-  "bpm": 78,
+  "bpm": 120,
   "cenas": [
     [
       "abre",
@@ -17,11 +17,11 @@
     ],
     [
       "flashcard",
-      13.0
+      12.0
     ],
     [
       "testa",
-      19.0
+      18.0
     ],
     [
       "fim",
@@ -30,30 +30,48 @@
   ],
   "cues": {
     "sel1": 7.0,
-    "barra1": 8.3,
+    "barra1": 8.0,
     "cor1": 9.0,
     "sel2": 10.0,
-    "cor2": 11.6,
-    "botaoFlash": 13.6,
-    "ocultar": 15.2,
-    "criar": 17.4,
-    "mostrar": 21.2,
-    "revela": 21.5,
-    "bom": 23.6,
-    "volta": 24.1
+    "cor2": 11.0,
+    "botaoFlash": 12.5,
+    "ocultar": 14.0,
+    "criar": 16.0,
+    "mostrar": 20.0,
+    "revela": 20.5,
+    "bom": 22.5,
+    "volta": 23.0
   },
   "sfx": [
     [
-      "whoosh",
+      "impacto",
+      "cena:abre",
+      0,
+      0.5
+    ],
+    [
+      "pop",
+      "cena:abre",
+      0.9,
+      0.7
+    ],
+    [
+      "pop",
       "cena:grifa",
-      -0.2,
-      0.6
+      0.2,
+      0.7
     ],
     [
       "marca",
       "cue:sel1",
       0,
       0.9
+    ],
+    [
+      "pop",
+      "cue:barra1",
+      0,
+      0.6
     ],
     [
       "click",
@@ -74,16 +92,22 @@
       0.9
     ],
     [
-      "whoosh",
+      "pop",
       "cena:flashcard",
-      -0.2,
-      0.6
+      0.2,
+      0.7
     ],
     [
       "click",
       "cue:botaoFlash",
       0,
       0.9
+    ],
+    [
+      "pop",
+      "cue:botaoFlash",
+      0.15,
+      0.6
     ],
     [
       "click",
@@ -98,16 +122,16 @@
       1.0
     ],
     [
-      "pluck:880",
+      "acerto",
       "cue:criar",
       0.1,
-      0.9
+      0.7
     ],
     [
-      "whoosh",
+      "pop",
       "cena:testa",
-      -0.2,
-      0.6
+      0.2,
+      0.7
     ],
     [
       "click",
@@ -116,28 +140,29 @@
       0.9
     ],
     [
+      "brilho",
+      "cue:revela",
+      0,
+      0.5
+    ],
+    [
       "click",
       "cue:bom",
       0,
       1.0
     ],
     [
-      "acerto",
+      "confete",
       "cue:bom",
-      0.1,
-      0.8
+      0.05,
+      1.0
     ],
     [
-      "whoosh",
+      "confete",
       "cena:fim",
-      -0.2,
+      0.3,
       0.6
-    ],
-    [
-      "brilho",
-      "cena:fim",
-      0.4,
-      0.5
     ]
-  ]
+  ],
+  "estilo": "energetico"
 }

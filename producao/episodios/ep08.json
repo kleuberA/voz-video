@@ -1,5 +1,5 @@
 {
-  "_sobre": "Piloto do formato A (producao/ESTRATEGIA_CONVERSAO.md): desafio de literalidade, sem oferta falada. Textos da CF copiados do Planalto em 2026-11-23. Fontes pendentes de conferência humana.",
+  "_sobre": "Piloto do formato A (producao/ESTRATEGIA_CONVERSAO.md): desafio de literalidade, sem oferta falada. Textos da CF copiados do Planalto em 2026-11-23. Fontes conferidas pelo responsável do Estuda Leges em 2026-11-23.",
   "id": "ep08",
   "titulo_interno": "Desafio de literalidade #1: complete a Constituição em 3 segundos",
   "formato": "desafio",
@@ -55,8 +55,8 @@
       "texto_literal": "§ 2º A proposta será discutida e votada em cada Casa do Congresso Nacional, em dois turnos, considerando-se aprovada se obtiver, em ambos, três quintos dos votos dos respectivos membros.",
       "sustenta": "rodada 1 (três quintos, duas Casas, dois turnos)",
       "copiado_em": "2026-11-23",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-23"
     },
     {
       "norma": "Constituição Federal de 1988",
@@ -65,8 +65,8 @@
       "texto_literal": "§ 1º Se o Presidente da República considerar o projeto, no todo ou em parte, inconstitucional ou contrário ao interesse público, vetá-lo-á total ou parcialmente, no prazo de quinze dias úteis, contados da data do recebimento, e comunicará, dentro de quarenta e oito horas, ao Presidente do Senado Federal os motivos do veto.",
       "sustenta": "rodada 2 (quinze dias úteis)",
       "copiado_em": "2026-11-23",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-23"
     },
     {
       "norma": "Constituição Federal de 1988",
@@ -75,8 +75,8 @@
       "texto_literal": "§ 3º As medidas provisórias, ressalvado o disposto nos §§ 11 e 12 perderão eficácia, desde a edição, se não forem convertidas em lei no prazo de sessenta dias, prorrogável, nos termos do § 7º, uma vez por igual período, devendo o Congresso Nacional disciplinar, por decreto legislativo, as relações jurídicas delas decorrentes.",
       "sustenta": "rodada 3 (sessenta dias, prorrogável uma vez)",
       "copiado_em": "2026-11-23",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-23"
     }
   ],
   "revisao_humana": [

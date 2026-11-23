@@ -1,5 +1,5 @@
 {
-  "_sobre": "Piloto do formato B (producao/ESTRATEGIA_CONVERSAO.md): 'Estude comigo', sessão de estudo na tela do app, sem voz. Textos da CF copiados do Planalto em 2026-11-23; fontes pendentes de conferência humana.",
+  "_sobre": "Piloto do formato B (producao/ESTRATEGIA_CONVERSAO.md): 'Estude comigo', sessão de estudo na tela do app, sem voz. Textos da CF copiados do Planalto em 2026-11-23; fontes conferidas pelo responsável do Estuda Leges em 2026-11-23.",
   "id": "ep09",
   "titulo_interno": "Estude comigo: 30 segundos de lei seca (habeas corpus e mandado de segurança)",
   "formato": "estude_comigo",
@@ -38,8 +38,8 @@
       "texto_literal": "LXVIII - conceder-se-á \"habeas-corpus\" sempre que alguém sofrer ou se achar ameaçado de sofrer violência ou coação em sua liberdade de locomoção, por ilegalidade ou abuso de poder;",
       "sustenta": "texto do leitor e do flashcard",
       "copiado_em": "2026-11-23",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-23"
     },
     {
       "norma": "Constituição Federal de 1988",
@@ -48,8 +48,8 @@
       "texto_literal": "LXIX - conceder-se-á mandado de segurança para proteger direito líquido e certo, não amparado por \"habeas-corpus\" ou \"habeas-data\", quando o responsável pela ilegalidade ou abuso de poder for autoridade pública ou agente de pessoa jurídica no exercício de atribuições do Poder Público;",
       "sustenta": "texto do leitor (segundo grifo)",
       "copiado_em": "2026-11-23",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-23"
     }
   ],
   "fidelidade_app": [

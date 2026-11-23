@@ -7,14 +7,14 @@
   },
   "grifa": {
    "start": 6.0,
-   "end": 13.0
+   "end": 12.0
   },
   "flashcard": {
-   "start": 13.0,
-   "end": 19.0
+   "start": 12.0,
+   "end": 18.0
   },
   "testa": {
-   "start": 19.0,
+   "start": 18.0,
    "end": 26.0
   },
   "fim": {
@@ -24,17 +24,17 @@
  },
  "cues": {
   "sel1": 7.0,
-  "barra1": 8.3,
+  "barra1": 8.0,
   "cor1": 9.0,
   "sel2": 10.0,
-  "cor2": 11.6,
-  "botaoFlash": 13.6,
-  "ocultar": 15.2,
-  "criar": 17.4,
-  "mostrar": 21.2,
-  "revela": 21.5,
-  "bom": 23.6,
-  "volta": 24.1
+  "cor2": 11.0,
+  "botaoFlash": 12.5,
+  "ocultar": 14.0,
+  "criar": 16.0,
+  "mostrar": 20.0,
+  "revela": 20.5,
+  "bom": 22.5,
+  "volta": 23.0
  },
  "textos": [],
  "chunks": [],

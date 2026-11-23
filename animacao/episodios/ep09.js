@@ -8,7 +8,7 @@
  * da interface: o app não roda neste ambiente.
  * Texto de lei: só ficha.fontes[].texto_literal (CF, art. 5º, LXVIII e LXIX).
  */
-import { EASE, clamp, mix, pop, prog, rise, spring, track } from "../motor.js";
+import { EASE, clamp, count, mix, pop, prog, rise, shake, spring, track } from "../motor.js";
 import { ICONE, compor, destacar, esc, selo } from "../pecas.js";
 
 const css = `
@@ -63,6 +63,40 @@ const CORES = ["#facc15", "#4ade80", "#60a5fa", "#f472b6"];
 const AMARELO = "rgba(250,204,21,0.34)", VERDE = "rgba(74,222,128,0.30)", SELECAO = "rgba(96,165,250,0.40)";
 const T1 = "liberdade de locomoção", T2 = "direito líquido e certo";
 
+/** Pulso no tempo da música (1 na batida, decai em ~0,1 s). */
+function pulso(t, ctx) {
+    const bt = 60 / (ctx.config.bpm || 120);
+    return Math.exp(-((t % bt) / 0.09));
+}
+
+/** Aleatório determinístico (mesmo quadro, mesmo resultado). */
+const rnd = (i, k) => {
+    const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453;
+    return x - Math.floor(x);
+};
+
+/** Explosão de confete a partir de (x, y) no instante `at`. */
+function confete(t, at, x0, y0, n = 46, forca = 1) {
+    const dt = t - at;
+    if (dt < 0 || dt > 1.7) return "";
+    const cores = ["#f2b766", "#8ddba6", "#60a5fa", "#f472b6", "#facc15"];
+    let html = "";
+    for (let i = 0; i < n; i++) {
+        const vx = (rnd(i, 1) - 0.5) * 560 * forca, vy = -(220 + rnd(i, 2) * 460) * forca;
+        const x = x0 + vx * dt, y = y0 + vy * dt + 0.5 * 950 * dt * dt;
+        const tam = 5 + rnd(i, 3) * 6, giro = (rnd(i, 4) - 0.5) * 1400 * dt;
+        const o = 1 - clamp((dt - 1.1) / 0.6);
+        html += `<i style="background:${cores[i % cores.length]};border-radius:${rnd(i, 5) > 0.6 ? "50%" : "2px"};height:${(tam * 0.6).toFixed(1)}px;left:${x.toFixed(1)}px;opacity:${o.toFixed(2)};position:absolute;top:${y.toFixed(1)}px;transform:rotate(${giro.toFixed(0)}deg);width:${tam.toFixed(1)}px"></i>`;
+    }
+    return `<div style="inset:0;pointer-events:none;position:absolute;z-index:60">${html}</div>`;
+}
+
+/** Câmera da cena: zoom por quadros-chave em direção a um ponto, com o pulso da batida. */
+function camera(t, ctx, chaves, origem, html, tremor = 0) {
+    const s = track(t, chaves) * (1 + 0.012 * pulso(t, ctx));
+    return `<div style="inset:0;position:absolute;transform-origin:${origem};transform:translate3d(${tremor.toFixed(2)}px,0,0) scale(${s.toFixed(4)})">${html}</div>`;
+}
+
 function inciso(ctx, d) {
     return ctx.ficha.fontes.find((f) => f.dispositivo === d).texto_literal;
 }
@@ -105,7 +139,7 @@ function janela(t, url, corpo, top = 196) {
 }
 
 function passo(t, n, texto, at) {
-    return `<div class="e9-topo" style="top:156px"><span class="e9-passo" style="${pop(t, at, { from: 0.85 })}"><b>${n}</b>${esc(texto)}</span></div>`;
+    return `<div class="e9-topo" style="top:156px;z-index:45"><span class="e9-passo" style="${pop(t, at, { from: 0.85 })}"><b>${n}</b>${esc(texto)}</span></div>`;
 }
 
 function leitor(ctx, t, ks1, cor1, ks2, cor2) {
@@ -122,10 +156,10 @@ function abre(tl, ctx) {
     // leitura: uma linha clara corre pelo texto (o olho lendo), para a tela não ficar parada
     const leitura = clamp((t - 0.6) / 4.6);
     return `<style>${css}</style>
-    <div class="e9-topo" style="top:66px"><h1 class="titulo e9-gancho">${destacar(ctx.gancho.tela)}</h1></div>
+    <div class="e9-topo" style="top:66px"><h1 class="titulo e9-gancho" style="transform:scale(${(1 + 0.035 * pulso(t, ctx)).toFixed(4)})">${destacar(ctx.gancho.tela)}</h1></div>
     ${passo(t, 1, L[0], 0.9)}
-    ${janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, 0, null, 0, null) +
-        `<div style="background:linear-gradient(90deg,transparent,rgba(141,219,166,0.5),transparent);height:2px;left:14px;position:absolute;right:14px;top:${(96 + leitura * 230).toFixed(1)}px"></div>`)}`;
+    ${camera(t, ctx, [[0, 1], [6, 1.05]], "50% 55%", janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, 0, null, 0, null) +
+        `<div style="background:linear-gradient(90deg,transparent,rgba(141,219,166,0.5),transparent);height:2px;left:14px;position:absolute;right:14px;top:${(96 + leitura * 230).toFixed(1)}px"></div>`))}`;
 }
 
 // ── 2. Grifar o que a banca troca ──────────────────────────────────────────────────────────────
@@ -139,9 +173,10 @@ function grifa(tl, ctx) {
     return `<style>${css}</style>
     ${selo(t, -1)}
     ${passo(t, 2, ctx.ficha.letreiros[1], ctx.cena.start + 0.2)}
-    ${janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, ks1, cor1, ks2, cor2))}
-    ${barra1 ? ferr(262, c.barra1) : ""}${barra2 ? ferr(372, c.sel2 + 1.0) : ""}
-    ${cursor(t, [[c.sel1 - 0.4, 300, 330], [c.sel1, 150, 304], [c.sel1 + 0.9, 260, 322], [c.cor1, 56, 270], [c.sel2, 120, 412], [c.sel2 + 0.9, 300, 412], [c.cor2, 75, 380], [c.cor2 + 0.8, 250, 440]], [c.cor1, c.cor2])}`;
+    ${camera(t, ctx, [[ctx.cena.start, 1], [c.sel1 - 0.3, 1], [c.sel1 + 0.25, 1.2], [c.cor2 + 0.3, 1.2], [ctx.cena.end - 0.2, 1.04]], "42% 46%",
+        janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, ks1, cor1, ks2, cor2)) +
+        (barra1 ? ferr(262, c.barra1) : "") + (barra2 ? ferr(372, c.sel2 + 1.0) : "") +
+        cursor(t, [[c.sel1 - 0.4, 300, 330], [c.sel1, 150, 304], [c.sel1 + 0.9, 260, 322], [c.cor1, 56, 270], [c.sel2, 120, 412], [c.sel2 + 0.9, 300, 412], [c.cor2, 75, 380], [c.cor2 + 0.8, 250, 440]], [c.cor1, c.cor2]))}`;
 }
 
 // ── 3. Virar flashcard (Ocultar trecho) ────────────────────────────────────────────────────────
@@ -159,8 +194,8 @@ function flashcard(tl, ctx) {
     return `<style>${css}</style>
     ${selo(t, -1)}
     ${passo(t, 3, ctx.ficha.letreiros[2], ini + 0.2)}
-    ${janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, 0, AMARELO, 0, VERDE) +
-        (!aberto ? `<div class="e9-ferr" style="left:24px;top:66px;${pop(t, ini + 0.2, { from: 0.8 })}">${CORES.map((cc) => `<i style="background:${cc}"></i>`).join("")}<span style="background:${t >= c.botaoFlash - 0.1 ? "#2f3a32" : "transparent"};border-radius:6px">Flashcard</span><span>Copiar</span></div>` : ""))}
+    ${camera(t, ctx, [[ini, 1], [c.botaoFlash + 0.1, 1], [c.botaoFlash + 0.5, 1.12], [c.criar, 1.12], [c.criar + 0.4, 1.0]], "45% 50%", janela(t, "estudaleges.com.br/biblioteca/constituicao-federal", leitor(ctx, t, 0, AMARELO, 0, VERDE) +
+        (!aberto ? `<div class="e9-ferr" style="left:24px;top:66px;${pop(t, ini + 0.2, { from: 0.8 })}">${CORES.map((cc) => `<i style="background:${cc}"></i>`).join("")}<span style="background:${t >= c.botaoFlash - 0.1 ? "#2f3a32" : "transparent"};border-radius:6px">Flashcard</span><span>Copiar</span></div>` : "")))}
     <div style="background:rgba(0,0,0,${aberto && !criado ? 0.45 : 0});inset:0;position:absolute"></div>
     ${dialogo}
     ${criado ? `<div class="e9-topo" style="top:440px;right:60px"><span class="e9-aviso" style="${pop(t, c.criar + 0.15, { from: 0.8 })}">${ICONE.ok}Flashcard criado · Ocultar trecho</span></div>` : ""}
@@ -187,15 +222,19 @@ function testa(tl, ctx) {
     return `<style>${css}</style>
     ${selo(t, -1)}
     ${passo(t, 4, ctx.ficha.letreiros[3], ini + 0.2)}
-    ${janela(t, "estudaleges.com.br/flashcards/revisar", corpo)}
+    ${camera(t, ctx, [[ini, 1], [c.revela - 0.2, 1], [c.revela + 0.3, 1.1], [c.bom - 0.1, 1.1], [c.bom + 0.5, 1.04]], "50% 42%",
+        janela(t, "estudaleges.com.br/flashcards/revisar", corpo) +
+        cursor(t, [[ini + 0.3, 300, 470], [c.mostrar, 200, 400], [c.bom - 0.5, 240, 420], [c.bom, 226, 410], [c.bom + 0.8, 300, 480]], [c.mostrar, c.bom]),
+        shake(t, c.bom, 5))}
     ${nota ? `<div class="e9-topo" style="top:474px;right:60px"><span class="e9-aviso" style="${pop(t, c.volta, { from: 0.8 })}">${ICONE.ok}${esc(ctx.ficha.letreiros[4])}</span></div>` : ""}
-    ${cursor(t, [[ini + 0.3, 300, 470], [c.mostrar, 200, 400], [c.bom - 0.5, 240, 420], [c.bom, 226, 410], [c.bom + 0.8, 300, 480]], [c.mostrar, c.bom])}`;
+    ${confete(t, c.bom, 226, 420)}`;
 }
 
 // ── 5. Fim ─────────────────────────────────────────────────────────────────────────────────────
 function fim(tl, ctx) {
     const t = ctx.t, ini = ctx.cena.start;
-    const linhas = [["Incisos lidos", "2"], ["Grifos", "2"], ["Flashcards", "1"], ["Tempo", "30 s"]];
+    const valor = (v, i) => count(t, ini + 0.5 + i * 0.25, 0.5, 0, v);
+    const linhas = [["Incisos lidos", valor(2, 0)], ["Grifos", valor(2, 1)], ["Flashcards", valor(1, 2)], ["Tempo", `${valor(30, 3)} s`]];
     return `<style>${css}</style>
     <div class="e9-topo" style="top:100px;right:60px">
       <p class="kicker ambar" style="${rise(t, ini + 0.05, { y: 8 })}">Sessão de hoje</p>
@@ -204,12 +243,34 @@ function fim(tl, ctx) {
     <div class="e9-resumo" style="top:236px;${rise(t, ini + 0.3, { y: 16 })}">
       ${linhas.map(([a, b], i) => `<div style="${rise(t, ini + 0.4 + i * 0.12, { y: 6 })}"><span>${a}</span><b>${b}</b></div>`).join("")}
     </div>
-    <div class="e9-origem" style="top:470px;${rise(t, ini + 1.0, { y: 6 })}"><img src="logo.png" alt="">estudando no Estuda Leges</div>`;
+    <div class="e9-origem" style="top:470px;${rise(t, ini + 1.0, { y: 6 })}"><img src="logo.png" alt="">estudando no Estuda Leges</div>
+    ${confete(t, ini + 0.3, 216, 200, 30, 0.8)}`;
 }
 
 const DESENHAR = { abre, grifa, flashcard, testa, fim };
 const TRANSICOES = { grifa: "fade", flashcard: "fade", testa: "push", fim: "fade" };
 
+/** Barra de progresso da sessão (passos 1–4) e clarão na entrada de cada cena, por cima de tudo. */
+function sobreposicao(t, ctx) {
+    const c = ctx.timing.scenes;
+    const ordem = ["abre", "grifa", "flashcard", "testa"];
+    let barra = "";
+    if (t >= c.grifa.start - 0.2 && t < c.fim.start) {
+        barra = ordem.map((id) => {
+            const k = clamp((t - c[id].start) / (c[id].end - c[id].start));
+            return `<i style="background:rgba(255,255,255,0.12);border-radius:3px;flex:1;height:5px;overflow:hidden;position:relative">
+              <b style="background:var(--amber);inset:0;position:absolute;transform-origin:0 50%;transform:scaleX(${k.toFixed(3)});box-shadow:0 0 10px rgba(242,183,102,0.6)"></b></i>`;
+        }).join("");
+        barra = `<div style="display:flex;gap:5px;left:20px;position:absolute;right:60px;top:122px;z-index:45;${rise(t, c.grifa.start - 0.2, { y: -6 })}">${barra}</div>`;
+    }
+    let clarao = 0;
+    for (const id of ["grifa", "flashcard", "testa", "fim"]) {
+        const d = t - c[id].start;
+        if (d >= 0 && d < 0.4) clarao = Math.max(clarao, 0.32 * Math.exp(-d / 0.09));
+    }
+    return barra + (clarao > 0.01 ? `<div style="background:#fff;inset:0;opacity:${clarao.toFixed(3)};position:absolute;z-index:80"></div>` : "");
+}
+
 export function quadro(t, ctx) {
-    return compor(t, ctx.timing.scenes, DESENHAR, TRANSICOES, ctx);
+    return compor(t, ctx.timing.scenes, DESENHAR, TRANSICOES, ctx) + (ctx.capa ? "" : sobreposicao(t, ctx));
 }

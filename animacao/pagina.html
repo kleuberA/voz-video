@@ -43,7 +43,7 @@ await Promise.all(["400 20px 'Instrument Serif'", "italic 400 20px 'Instrument S
 await document.fonts.ready;
 await new Promise((ok) => { const i = new Image(); i.onload = i.onerror = ok; i.src = "logo.png"; });
 
-const ctx = { ficha, oferta, timing, variante, gancho: ficha.ganchos.find((g) => g.id === variante), provisorio: Boolean(timing.provisorio), capa: q.get("capa") === "1" };
+const ctx = { config, ficha, oferta, timing, variante, gancho: ficha.ganchos.find((g) => g.id === variante), provisorio: Boolean(timing.provisorio), capa: q.get("capa") === "1" };
 const palco = document.getElementById("palco");
 // fonte sem conferência humana = rascunho, mesmo com a narração pronta (não pode ser publicado)
 const fontesPendentes = (ficha.fontes || []).some((f) => !String(f.conferido_por || "").trim() || !String(f.conferido_em || "").trim());
