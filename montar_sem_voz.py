@@ -20,6 +20,8 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
+from loudness import normalizar
+
 if len(sys.argv) < 2:
     sys.exit("Uso: python montar_sem_voz.py <pasta do episódio>")
 EP = Path(sys.argv[1])
@@ -121,7 +123,7 @@ def exportar(nome, partes):
     mix = sum(partes)[:total]
     with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
         sf.write(tmp.name, mix / max(1.0, np.abs(mix).max()), SR)
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp.name, "-af", "loudnorm=I=-14:TP=-1.5:LRA=9", "-ar", str(SR), str(saida / nome)], check=True)
+        normalizar(tmp.name, saida / nome, SR)  # duas passadas (loudness.py)
 
 
 exportar("mix.wav", [trilha, sfx * 0.6])

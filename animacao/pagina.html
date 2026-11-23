@@ -33,6 +33,8 @@ const ficha = await ler(config.ficha);
 const oferta = (await ler("producao/oferta.json")).oferta;
 let timingArq = `${ep}/timing${suf}.json`;
 if (!(await existe(timingArq))) timingArq = `${ep}/timing-provisorio${suf}.json`;
+// vídeo sem narração: a variante B usa os mesmos tempos da A
+if (!(await existe(timingArq)) && config.sem_narracao) timingArq = `${ep}/timing.json`;
 const timing = await ler(timingArq);
 const mod = await import(`./episodios/${config.animacao}.js`);
 // carrega as fontes e o logo antes do 1º quadro (nenhum quadro sai com fonte de reserva)

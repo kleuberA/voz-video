@@ -32,6 +32,8 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
+from loudness import normalizar
+
 BASE = Path(__file__).parent
 ap = argparse.ArgumentParser(description="Monta o áudio e o timing.json de um episódio.")
 ap.add_argument("episodio", help="pasta do episódio (videos/short-epNN-tema) ou só 'epNN'")
@@ -411,8 +413,7 @@ def exportar(nome, partes):
     mix = sum(partes)[:total]
     with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
         sf.write(tmp.name, mix / max(1.0, np.abs(mix).max()), SR)
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp.name, "-af",
-                        "loudnorm=I=-14:TP=-1.5:LRA=9", "-ar", str(SR), str(SAIDA / nome)], check=True)
+        normalizar(tmp.name, SAIDA / nome, SR)  # duas passadas (loudness.py)
 
 
 exportar("voz.wav", [voz_pp])  # só a voz tratada (para conferir a voz sem efeitos e trilha)
