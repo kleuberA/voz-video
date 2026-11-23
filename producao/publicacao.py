@@ -67,7 +67,10 @@ def gerar(f):
         add(f"- Alternativa para o próximo teste: `{alt}`")
     add("\n**Descrição:**\n```")
     add(p.get("descricao", "").strip())
-    if f.get("objetivo") == "cadastro":
+    if f.get("objetivo") == "curiosidade":
+        # formatos implícitos (desafio, estude comigo): sem oferta, só o caminho para o artigo
+        add("\n📖 O artigo do vídeo, no Estuda Leges:")
+    elif f.get("objetivo") == "cadastro":
         # vídeo de conversão: a chamada é a conta, não a leitura grátis (que dispensa o cadastro)
         add(f"\n✅ Treine este artigo: crie sua conta grátis ({of['teste']}):")
     else:
