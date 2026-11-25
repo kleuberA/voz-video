@@ -65,3 +65,10 @@ Mesmo texto para todos (`texto_teste.txt`, tom de Short), medido por `avaliar.py
    a de um locutor contratado), falando como num Short: frases curtas, perguntas e ênfase. Celular
    num quarto silencioso basta. Assim a voz é própria e não de um narrador anônimo de audiolivro.
 3. Manter a verificação por Whisper e os alertas de prosódia em cada geração.
+
+## Decisão (25/11/2026)
+
+Depois de ouvir o #8 com as duas vozes, a escolhida para produção foi a **"h"**: Qwen3-TTS com a
+referência `cv_131_longa.wav`. No roteiro do desafio ela ficou dentro da faixa natural (2% de erro,
+3,8–4,4 st de variação de tom, 147–166 palavras/min) e deixou o vídeo ~4 s mais curto que a "i".
+É o padrão do `gerar_qwen.py`.

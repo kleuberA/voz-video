@@ -1,5 +1,9 @@
 """
-Narração de produção com Qwen3-TTS (Apache-2.0), aprovada em 23/11/2026 (pesquisa_voz/RESULTADOS.md).
+Narração de produção com Qwen3-TTS (Apache-2.0) (pesquisa_voz/RESULTADOS.md).
+
+Voz padrão desde 25/11/2026: a "h" da pesquisa, clonada de referencias/cv_131_longa.wav (a mesma
+referência dos episódios #1–#7), escolhida de ouvido depois do #8. Outra voz: --ref outra.wav (com o
+.txt da transcrição ao lado).
 
     python gerar_qwen.py videos/short-ep08-desafio/narracao
     python gerar_qwen.py videos/short-ep08-desafio/narracao --variante B
@@ -19,7 +23,7 @@ BASE = Path(__file__).parent
 ap = argparse.ArgumentParser()
 ap.add_argument("narracao", type=Path, help="pasta com p1.txt … pN.txt (e p1b.txt)")
 ap.add_argument("--variante", choices=["A", "B"], default="A")
-ap.add_argument("--ref", default=str(BASE / "referencias" / "mls_12428.wav"))
+ap.add_argument("--ref", default=str(BASE / "referencias" / "cv_131_longa.wav"))
 ap.add_argument("--modelo", default="Qwen/Qwen3-TTS-12Hz-1.7B-Base")
 ap.add_argument("--tentativas", type=int, default=3)
 ap.add_argument("--temperatura", type=float, default=0.9)

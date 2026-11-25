@@ -3,7 +3,8 @@
 > **Produção dos Shorts e Reels:** o passo a passo completo (pauta, validação jurídica, roteiro, voz,
 > controle de qualidade, publicação e análise) está em [`producao/README.md`](producao/README.md). O
 > diagnóstico dos episódios #1–#5 está em [`producao/DIAGNOSTICO.md`](producao/DIAGNOSTICO.md).
-> O preset padrão de `gerar_clonada.py` agora é `shorts` (voz v2 + verificação de naturalidade).
+> **Voz padrão dos vídeos novos:** `gerar_qwen.py` (Qwen3-TTS) com a referência `referencias/cv_131_longa.wav`
+> (voz "h" de `pesquisa_voz/RESULTADOS.md`). O `gerar_clonada.py` (Chatterbox, preset `shorts`) fica para os episódios antigos.
 > `montar_audio.py` (trilha, efeitos e `timing.json` de cada episódio) também mora aqui agora.
 
 ## Instalação (uma vez só)
