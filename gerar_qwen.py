@@ -133,7 +133,7 @@ for n in saidas:
     ouvido = " ".join(w for w, s0, _ in ouvidas if cortes[n] / sr - 0.05 <= s0 < cortes[n + 1] / sr)
     e_fala = jiwer.wer(norm(falas[n]), norm(ouvido)) if ouvido else 1.0
     (pasta / f"{nome}.json").write_text(json.dumps({
-        "motor": a.modelo, "referencia": str(Path(a.ref).relative_to(BASE)), "variante": a.variante,
+        "motor": a.modelo, "referencia": str(Path(a.ref).resolve().relative_to(BASE.resolve())), "variante": a.variante,
         "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
         "verificacao": {"erro_fala": round(e_fala, 3), "erro_roteiro": round(erro, 3), "ouvido": ouvido,
                         "maior_pausa_s": round(nat["pausa_max"], 2), "tom_st": round(nat["tom_st"], 2), "ppm": round(nat["ppm"])},
