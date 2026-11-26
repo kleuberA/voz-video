@@ -5,10 +5,10 @@
   "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
   "verificacao": {
     "erro_fala": 0.0,
-    "erro_roteiro": 0.025,
-    "ouvido": "Errado.",
-    "maior_pausa_s": 0.44,
-    "tom_st": 2.96,
-    "ppm": 179
+    "erro_roteiro": 0.051,
+    "ouvido": "Errado,",
+    "maior_pausa_s": 0.53,
+    "tom_st": 2.46,
+    "ppm": 170
   }
 }

@@ -4,11 +4,11 @@
   "variante": "A",
   "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
   "verificacao": {
-    "erro_fala": 0.08,
-    "erro_roteiro": 0.025,
-    "ouvido": "Jogue o item. A casa é a asilo inviolável do indivíduo, mas nela se pode penetrar, a qualquer hora, por determinação judicial. Comenta antes de ver.",
-    "maior_pausa_s": 0.44,
-    "tom_st": 2.96,
-    "ppm": 179
+    "erro_fala": 0.0,
+    "erro_roteiro": 0.051,
+    "ouvido": "certo ou errado? A casa é asilo inviolável do indivíduo, mas nela se pode penetrar. A qualquer hora, por determinação judicial, comenta antes de ver.",
+    "maior_pausa_s": 0.53,
+    "tom_st": 2.46,
+    "ppm": 170
   }
 }
