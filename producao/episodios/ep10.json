@@ -1,5 +1,5 @@
 {
-  "_sobre": "Teste de oferta (plano do usuário, 26/11/2026): o vídeo não vende a assinatura, só leva a criar a conta grátis de 7 dias. Narrado com a voz padrão (h), a pedido do usuário. Texto da CF copiado do Planalto em 2026-11-22; fonte pendente de conferência humana.",
+  "_sobre": "Teste de oferta (plano do usuário, 26/11/2026): o vídeo não vende a assinatura, só leva a criar a conta grátis de 7 dias. Narrado com a voz padrão (h), a pedido do usuário. Texto da CF copiado do Planalto em 2026-11-22; fonte conferida pelo responsável do Estuda Leges em 2026-11-26.",
   "id": "ep10",
   "titulo_interno": "Pegadinha da CF, art. 5º, XI: ordem judicial só durante o dia",
   "formato": "pegadinha",
@@ -61,8 +61,8 @@
       "texto_literal": "XI - a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante o dia, por determinação judicial;",
       "sustenta": "item (errado), explicação e a questão do treino (inviolável → violável)",
       "copiado_em": "2026-11-22",
-      "conferido_por": "",
-      "conferido_em": ""
+      "conferido_por": "responsável do Estuda Leges",
+      "conferido_em": "2026-11-26"
     }
   ],
   "fidelidade_app": [
