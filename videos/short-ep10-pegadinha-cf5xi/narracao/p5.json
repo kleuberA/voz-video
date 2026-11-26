@@ -1,0 +1,14 @@
+{
+  "motor": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia": "referencias/cv_131_longa.wav",
+  "variante": "A",
+  "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
+  "verificacao": {
+    "erro_fala": 0.091,
+    "erro_roteiro": 0.0,
+    "ouvido": "A banca troca uma palavra. Por isso, treine isso todo dia. Link",
+    "maior_pausa_s": 0.48,
+    "tom_st": 2.62,
+    "ppm": 174
+  }
+}

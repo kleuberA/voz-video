@@ -15,7 +15,7 @@ Avisa (não bloqueia) sobre ritmo e pronúncia: gancho longo, vídeo fora de 20�
 longa demais, frase com mais de 20 palavras, número em algarismo, sigla e as palavras que a voz já
 errou (pronuncia.json).
 
-Com --gerar-falas, grava p1.txt (gancho A), p1b.txt (gancho B), p2.txt… e roteiro.txt, prontos
+Com --gerar-falas, grava p1.txt (gancho A), p1b.txt/p1c.txt… (ganchos B, C…), p2.txt… e roteiro.txt, prontos
 para gerar_clonada.py. Só grava se não houver bloqueio.
 """
 import argparse, json, re, sys
@@ -28,7 +28,7 @@ PRONUNCIA = json.loads((AQUI / "pronuncia.json").read_text(encoding="utf-8"))["t
 
 PPM = 165            # palavras por minuto da voz v2 (medido)
 PAUSA_FALAS = 0.30   # segundos entre falas na montagem
-FORMATOS = {"dia_a_dia", "pegadinha", "tecnica", "demonstracao"}
+FORMATOS = {"dia_a_dia", "pegadinha", "tecnica", "demonstracao", "desafio", "estude_comigo"}
 # formatos em que a chamada pode ser mais longa (o produto é o assunto)
 CTA_MAX = {"demonstracao": 0.25}
 CTA_MAX_PADRAO = 0.15
@@ -141,11 +141,37 @@ def checar_pronuncia(nome, texto, r):
             r.aviso(f"{nome}: frase com {len(palavras(fr))} palavras. Quebre em frases de até 20.")
 
 
+def checar_sem_narracao(f, r):
+    """Vídeo sem voz (ex.: "Estude comigo"): só tela, letreiros e música. Valem as mesmas travas de
+    fonte e de promessa; não há fala para medir ritmo ou pronúncia."""
+    for campo in ("id", "problema", "ganchos", "letreiros"):
+        if not f.get(campo):
+            r.erro(f"Falta '{campo}'.")
+    if r.erros:
+        return r
+    if len(f["ganchos"]) < 2:
+        r.erro("Escreva dois ganchos (A e B).")
+    for g in f["ganchos"]:
+        if len(palavras(g.get("tela", ""))) > 9:
+            r.aviso(f"gancho {g.get('id')}: {len(palavras(g['tela']))} palavras na tela (até 8).")
+    for i, l in enumerate(f["letreiros"], 1):
+        if len(palavras(l)) > 7:
+            r.aviso(f"letreiro {i}: {len(palavras(l))} palavras. Letreiro de tela precisa ser lido em 1 s (até 6).")
+    r.dado(f"Sem narração: {len(f['letreiros'])} letreiros, duração prevista {f.get('duracao_s', '?')} s.")
+    checar_fontes(f, r)
+    checar_textos(f, r, [g.get("tela", "") for g in f["ganchos"]] + list(f["letreiros"]))
+    if not (f.get("publicacao") or {}).get("comentario_fixado"):
+        r.aviso("Sem comentário fixado.")
+    return r
+
+
 def checar(f):
     r = Relatorio()
     formato = f.get("formato")
     if formato not in FORMATOS:
         r.erro(f"formato deve ser um de {sorted(FORMATOS)}.")
+    if f.get("sem_narracao"):
+        return checar_sem_narracao(f, r)
     for campo in ("id", "problema", "ganchos", "falas", "cta"):
         if not f.get(campo):
             r.erro(f"Falta '{campo}'.")
@@ -184,6 +210,8 @@ def checar(f):
     elif total > 35:
         r.aviso(f"Acima de 35 s. Corte {total - 32:.0f} s do miolo: cada segundo a mais derruba a % assistida.")
     limite = CTA_MAX.get(formato, CTA_MAX_PADRAO)
+    if f.get("objetivo") == "cadastro":  # vídeo de conversão: a chamada é o ponto do vídeo
+        limite = max(limite, 0.20)
     if s_cta / total > limite:
         r.aviso(f"Chamada final com {s_cta:.1f} s ({s_cta / total:.0%} do vídeo; limite {limite:.0%}). Deixe a oferta em uma frase e ponha o resto na tela.")
     if not re.search(r"perfil|bio|link|comenta|salva", cta, re.I):
@@ -208,14 +236,17 @@ def checar(f):
 
 def gerar_falas(f, destino):
     destino.mkdir(parents=True, exist_ok=True)
-    a, b = f["ganchos"][0]["fala"], f["ganchos"][1]["fala"]
+    a = f["ganchos"][0]["fala"]
     (destino / "p1.txt").write_text(a + "\n", encoding="utf-8")
-    (destino / "p1b.txt").write_text(b + "\n", encoding="utf-8")
+    # ganchos extras: B → p1b.txt, C → p1c.txt …
+    for g in f["ganchos"][1:]:
+        (destino / f"p1{g['id'].lower()}.txt").write_text(g["fala"] + "\n", encoding="utf-8")
     textos = f["falas"] + [f["cta"]["fala"]]
     for i, t in enumerate(textos, 2):
         (destino / f"p{i}.txt").write_text(t + "\n", encoding="utf-8")
     (destino / "roteiro.txt").write_text("\n\n".join([a] + textos) + "\n", encoding="utf-8")
-    print(f"Falas gravadas em {destino}: p1 (gancho A), p1b (gancho B), p2…p{len(textos) + 1}.")
+    extras = ", ".join(f"p1{g['id'].lower()} (gancho {g['id']})" for g in f["ganchos"][1:])
+    print(f"Falas gravadas em {destino}: p1 (gancho A), {extras}, p2…p{len(textos) + 1}.")
 
 
 if __name__ == "__main__":

@@ -118,7 +118,9 @@ async function encode(ep, variante, info) {
     const mkv = path.join(RAIZ, "animacao", "out", id, `quadros-${variante}.mkv`);
     const suf = (variante === "A" ? "" : `-${variante}`) + (rascunho(info) ? "-rascunho" : "");
     const base = path.join(RAIZ, ep, `estuda-leges-${id}${suf}`);
-    const audioDir = path.join(RAIZ, ep, variante === "A" ? "audio" : `audio-${variante}`);
+    let audioDir = path.join(RAIZ, ep, variante === "A" ? "audio" : `audio-${variante}`);
+    // vídeo sem narração: a trilha é a mesma nas duas variantes
+    if (!existsSync(audioDir) && JSON.parse(readFileSync(path.join(RAIZ, ep, "config.json"), "utf8")).sem_narracao) audioDir = path.join(RAIZ, ep, "audio");
     const v = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-profile:v", "high", "-pix_fmt", "yuv420p", "-r", String(info.fps), "-movflags", "+faststart"];
     const a = ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest"];
     for (const [nome, wav] of [["", "mix.wav"], ["-sem-trilha", "mix_sem_trilha.wav"]]) {

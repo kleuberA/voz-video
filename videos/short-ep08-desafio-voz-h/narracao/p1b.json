@@ -1,0 +1,14 @@
+{
+  "motor": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia": "referencias/cv_131_longa.wav",
+  "variante": "B",
+  "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
+  "verificacao": {
+    "erro_fala": 0.0,
+    "erro_roteiro": 0.019,
+    "ouvido": "Três artigos da Constituição, uma palavra faltando. Você completa.",
+    "maior_pausa_s": 0.62,
+    "tom_st": 4.43,
+    "ppm": 147
+  }
+}

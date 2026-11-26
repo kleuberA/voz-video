@@ -13,21 +13,71 @@
     "tela_cta_padrao": "A lei inteira, grátis · 7 dias de Premium sem cartão"
   },
   "utm": {
-    "youtube_descricao": {"utm_source": "youtube", "utm_medium": "shorts", "conteudo": "{ep}_descricao"},
-    "youtube_comentario": {"utm_source": "youtube", "utm_medium": "shorts", "conteudo": "{ep}_comentario"},
-    "youtube_perfil": {"utm_source": "youtube", "utm_medium": "perfil", "conteudo": "{ep}"},
-    "instagram_bio": {"utm_source": "instagram", "utm_medium": "bio", "conteudo": "{ep}"},
-    "instagram_stories": {"utm_source": "instagram", "utm_medium": "stories", "conteudo": "{ep}"},
-    "instagram_dm": {"utm_source": "instagram", "utm_medium": "dm", "conteudo": "{ep}"},
-    "tiktok_bio": {"utm_source": "tiktok", "utm_medium": "bio", "conteudo": "{ep}"}
+    "youtube_descricao": {
+      "utm_source": "youtube",
+      "utm_medium": "shorts",
+      "conteudo": "{ep}_descricao"
+    },
+    "youtube_comentario": {
+      "utm_source": "youtube",
+      "utm_medium": "shorts",
+      "conteudo": "{ep}_comentario"
+    },
+    "youtube_perfil": {
+      "utm_source": "youtube",
+      "utm_medium": "perfil",
+      "conteudo": "{ep}"
+    },
+    "instagram_bio": {
+      "utm_source": "instagram",
+      "utm_medium": "bio",
+      "conteudo": "{ep}"
+    },
+    "instagram_stories": {
+      "utm_source": "instagram",
+      "utm_medium": "stories",
+      "conteudo": "{ep}"
+    },
+    "instagram_dm": {
+      "utm_source": "instagram",
+      "utm_medium": "dm",
+      "conteudo": "{ep}"
+    },
+    "tiktok_bio": {
+      "utm_source": "tiktok",
+      "utm_medium": "bio",
+      "conteudo": "{ep}"
+    }
   },
   "fontes_oficiais": [
-    "planalto.gov.br", "in.gov.br", "camara.leg.br", "senado.leg.br", "congressonacional.leg.br",
-    "stf.jus.br", "stj.jus.br", "tst.jus.br", "tse.jus.br", "cnj.jus.br", "jus.br", "gov.br"
+    "planalto.gov.br",
+    "in.gov.br",
+    "camara.leg.br",
+    "senado.leg.br",
+    "congressonacional.leg.br",
+    "stf.jus.br",
+    "stj.jus.br",
+    "tst.jus.br",
+    "tse.jus.br",
+    "cnj.jus.br",
+    "jus.br",
+    "gov.br"
   ],
   "promessas_proibidas": [
-    "em tempo real", "todas as leis", "aprovação garantida", "garantimos", "garantido",
-    "segredo que ninguém conta", "inteligência artificial", "banco de questões", "100% atualizado",
-    "aviso por e-mail", "notificação no celular"
+    "em tempo real",
+    "todas as leis",
+    "aprovação garantida",
+    "garantimos",
+    "garantido",
+    "segredo que ninguém conta",
+    "inteligência artificial",
+    "banco de questões",
+    "100% atualizado",
+    "aviso por e-mail",
+    "notificação no celular",
+    "% erra",
+    "% das pessoas",
+    "ninguém sabe",
+    "todo mundo erra"
   ]
 }

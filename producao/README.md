@@ -63,11 +63,18 @@ python producao/checar_roteiro.py producao/episodios/ep06.json --gerar-falas vid
 ```
 
 ```bash
-for f in videos/short-ep06-tema/narracao/p*.txt; do python gerar_clonada.py "$f" "${f%.txt}.wav"; done
+python gerar_qwen.py videos/short-ep06-tema/narracao
 ```
 
-O preset padrão agora é `shorts` (voz v2 + verificação de naturalidade + 6 tentativas). Confira os
-avisos ⚠ e reescreva a frase que errar em todas as tentativas, anotando a troca em `pronuncia.json`.
+```bash
+python gerar_qwen.py videos/short-ep06-tema/narracao --variante B
+```
+
+Narração com Qwen3-TTS (ambiente `.venv-qwen`): o roteiro inteiro é gerado de uma vez e cortado nas
+falas. A voz padrão é a "h" (referência `referencias/cv_131_longa.wav`), escolhida em 25/11/2026; para
+outra voz, `--ref arquivo.wav` com a transcrição em `arquivo.txt`. Confira os avisos ⚠ e reescreva a
+frase que errar, anotando a troca em `pronuncia.json`. O `gerar_clonada.py` (Chatterbox) continua
+disponível para refazer os episódios antigos.
 
 Depois, monte a trilha e os tempos (o `config.json` do episódio define pausas, eventos, cenas,
 legenda e efeitos; copie o de um episódio parecido):

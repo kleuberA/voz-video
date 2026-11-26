@@ -1,0 +1,14 @@
+{
+  "motor": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia": "referencias/cv_131_longa.wav",
+  "variante": "A",
+  "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
+  "verificacao": {
+    "erro_fala": 0.0,
+    "erro_roteiro": 0.0,
+    "ouvido": "Link no perfil. Treine as pegadinhas da sua lei grátis no Estuda Legis.",
+    "maior_pausa_s": 0.48,
+    "tom_st": 2.62,
+    "ppm": 174
+  }
+}

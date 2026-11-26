@@ -1,24 +1,105 @@
 {
   "_sobre": "Escritas que a voz (Chatterbox) erra ou que o Whisper acusa como erro. Aprendido nos episódios #1 a #5. checar_roteiro.py avisa quando uma fala usa a forma da esquerda.",
   "trocas": [
-    {"escrito": "art.", "falar": "artigo", "motivo": "abreviação é lida letra por letra"},
-    {"escrito": "arts.", "falar": "artigos", "motivo": "abreviação"},
-    {"escrito": "§", "falar": "parágrafo", "motivo": "símbolo não é lido"},
-    {"escrito": "nº", "falar": "número", "motivo": "abreviação"},
-    {"escrito": "inc.", "falar": "inciso", "motivo": "abreviação"},
-    {"escrito": "CF", "falar": "Constituição", "motivo": "sigla soletrada soa robótica"},
-    {"escrito": "CDC", "falar": "Código de Defesa do Consumidor", "motivo": "sigla"},
-    {"escrito": "CLT", "falar": "cê-éle-tê", "motivo": "sigla: escreva como se fala"},
-    {"escrito": "STF", "falar": "Supremo", "motivo": "sigla"},
-    {"escrito": "STJ", "falar": "esse-tê-jota", "motivo": "sigla"},
-    {"escrito": "OAB", "falar": "ó-a-bê", "motivo": "sigla"},
-    {"escrito": "EC", "falar": "emenda constitucional", "motivo": "sigla"},
-    {"escrito": "Treine", "falar": "Pratique / Faça o treino", "motivo": "saiu 'Traine' no #4"},
-    {"escrito": "Premium", "falar": "acesso completo", "motivo": "saiu 'prêmio' no #4"},
-    {"escrito": "quóruns", "falar": "frações", "motivo": "erro em todas as tentativas no #1"},
-    {"escrito": "o app", "falar": "você recebe um aviso / no Estuda Leges", "motivo": "soou 'API' no #3"},
-    {"escrito": "nem em flagrante", "falar": "nem mesmo se for flagrante", "motivo": "erro em todas as tentativas no #1"},
-    {"escrito": "%", "falar": "por cento", "motivo": "símbolo"},
-    {"escrito": "x1", "falar": "por um", "motivo": "6x1 → seis por um"}
+    {
+      "escrito": "art.",
+      "falar": "artigo",
+      "motivo": "abreviação é lida letra por letra"
+    },
+    {
+      "escrito": "arts.",
+      "falar": "artigos",
+      "motivo": "abreviação"
+    },
+    {
+      "escrito": "§",
+      "falar": "parágrafo",
+      "motivo": "símbolo não é lido"
+    },
+    {
+      "escrito": "nº",
+      "falar": "número",
+      "motivo": "abreviação"
+    },
+    {
+      "escrito": "inc.",
+      "falar": "inciso",
+      "motivo": "abreviação"
+    },
+    {
+      "escrito": "CF",
+      "falar": "Constituição",
+      "motivo": "sigla soletrada soa robótica"
+    },
+    {
+      "escrito": "CDC",
+      "falar": "Código de Defesa do Consumidor",
+      "motivo": "sigla"
+    },
+    {
+      "escrito": "CLT",
+      "falar": "cê-éle-tê",
+      "motivo": "sigla: escreva como se fala"
+    },
+    {
+      "escrito": "STF",
+      "falar": "Supremo",
+      "motivo": "sigla"
+    },
+    {
+      "escrito": "STJ",
+      "falar": "esse-tê-jota",
+      "motivo": "sigla"
+    },
+    {
+      "escrito": "OAB",
+      "falar": "ó-a-bê",
+      "motivo": "sigla"
+    },
+    {
+      "escrito": "EC",
+      "falar": "emenda constitucional",
+      "motivo": "sigla"
+    },
+    {
+      "escrito": "Treine",
+      "falar": "Pratique / Faça o treino",
+      "motivo": "saiu 'Traine' no #4"
+    },
+    {
+      "escrito": "Premium",
+      "falar": "acesso completo",
+      "motivo": "saiu 'prêmio' no #4"
+    },
+    {
+      "escrito": "quóruns",
+      "falar": "frações",
+      "motivo": "erro em todas as tentativas no #1"
+    },
+    {
+      "escrito": "o app",
+      "falar": "você recebe um aviso / no Estuda Leges",
+      "motivo": "soou 'API' no #3"
+    },
+    {
+      "escrito": "nem em flagrante",
+      "falar": "nem mesmo se for flagrante",
+      "motivo": "erro em todas as tentativas no #1"
+    },
+    {
+      "escrito": "%",
+      "falar": "por cento",
+      "motivo": "símbolo"
+    },
+    {
+      "escrito": "x1",
+      "falar": "por um",
+      "motivo": "6x1 → seis por um"
+    },
+    {
+      "escrito": "Julgue",
+      "falar": "Certo ou errado?",
+      "motivo": "saiu 'Jogue' em 3 tentativas no #10 (voz h)"
+    }
   ]
 }

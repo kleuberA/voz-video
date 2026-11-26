@@ -1,0 +1,203 @@
+{
+  "titulo": "Desafio de literalidade #1: complete a Constituição em 3 segundos",
+  "ficha": "producao/episodios/ep08.json",
+  "animacao": "ep08",
+  "capa_t": 1.4,
+  "falas": 8,
+  "velocidade": 1.0,
+  "lead": 0.05,
+  "gaps": {
+    "2": 0.05,
+    "3": 3.0,
+    "4": 0.1,
+    "5": 3.0,
+    "6": 0.1,
+    "7": 3.0,
+    "8": 0.15
+  },
+  "cauda": 0.8,
+  "cues": {
+    "q1": {
+      "seg": 2,
+      "word": "votos?",
+      "campo": "e"
+    },
+    "r1": {
+      "seg": 3,
+      "word": "Três"
+    },
+    "c2": {
+      "inicio": 4,
+      "offset": -0.25
+    },
+    "q2": {
+      "seg": 4,
+      "word": "projeto.",
+      "campo": "e"
+    },
+    "r2": {
+      "seg": 5,
+      "word": "Quinze"
+    },
+    "c3": {
+      "inicio": 6,
+      "offset": -0.25
+    },
+    "q3": {
+      "seg": 6,
+      "word": "provisória?",
+      "campo": "e"
+    },
+    "r3": {
+      "seg": 7,
+      "word": "Sessenta"
+    },
+    "acertou": {
+      "seg": 8,
+      "word": "acertou?"
+    }
+  },
+  "cenas": [
+    [
+      "desafio",
+      null
+    ],
+    [
+      "fim",
+      {
+        "inicio": 8,
+        "offset": -0.15
+      }
+    ]
+  ],
+  "legenda": {
+    "três quintos": "3/5",
+    "três segundos": "3 segundos",
+    "quinze": "15",
+    "sessenta": "60"
+  },
+  "quentes": [
+    "3/5",
+    "15",
+    "úteis",
+    "60",
+    "acertou?",
+    "segundos"
+  ],
+  "sfx": [
+    [
+      "tick:1500",
+      "cue:q1",
+      0.15,
+      0.7
+    ],
+    [
+      "tick:1500",
+      "cue:q1",
+      1.15,
+      0.7
+    ],
+    [
+      "tick:2000",
+      "cue:q1",
+      2.15,
+      0.8
+    ],
+    [
+      "acerto",
+      "cue:r1",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:r1",
+      0.12,
+      0.6
+    ],
+    [
+      "whoosh",
+      "cue:c2",
+      0,
+      0.8
+    ],
+    [
+      "tick:1500",
+      "cue:q2",
+      0.15,
+      0.7
+    ],
+    [
+      "tick:1500",
+      "cue:q2",
+      1.15,
+      0.7
+    ],
+    [
+      "tick:2000",
+      "cue:q2",
+      2.15,
+      0.8
+    ],
+    [
+      "acerto",
+      "cue:r2",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:r2",
+      0.12,
+      0.6
+    ],
+    [
+      "whoosh",
+      "cue:c3",
+      0,
+      0.8
+    ],
+    [
+      "tick:1500",
+      "cue:q3",
+      0.15,
+      0.7
+    ],
+    [
+      "tick:1500",
+      "cue:q3",
+      1.15,
+      0.7
+    ],
+    [
+      "tick:2000",
+      "cue:q3",
+      2.15,
+      0.8
+    ],
+    [
+      "acerto",
+      "cue:r3",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:r3",
+      0.12,
+      0.6
+    ],
+    [
+      "whoosh",
+      "cena:fim",
+      0,
+      0.8
+    ],
+    [
+      "pluck:1318.5",
+      "cue:acertou",
+      0,
+      1.0
+    ]
+  ]
+}

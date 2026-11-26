@@ -1,0 +1,14 @@
+{
+  "motor": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia": "referencias/cv_131_longa.wav",
+  "variante": "A",
+  "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
+  "verificacao": {
+    "erro_fala": 0.125,
+    "erro_roteiro": 0.02,
+    "ouvido": "Primeira, emenda a Constituição aprovada com quantos votos?",
+    "maior_pausa_s": 0.63,
+    "tom_st": 3.79,
+    "ppm": 166
+  }
+}

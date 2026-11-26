@@ -67,7 +67,14 @@ def gerar(f):
         add(f"- Alternativa para o próximo teste: `{alt}`")
     add("\n**Descrição:**\n```")
     add(p.get("descricao", "").strip())
-    add(f"\n📖 {of['gratis'].capitalize()}, e {of['teste']}:")
+    if f.get("objetivo") == "curiosidade":
+        # formatos implícitos (desafio, estude comigo): sem oferta, só o caminho para o artigo
+        add("\n📖 O artigo do vídeo, no Estuda Leges:")
+    elif f.get("objetivo") == "cadastro":
+        # vídeo de conversão: a chamada é a conta, não a leitura grátis (que dispensa o cadastro)
+        add(f"\n✅ Treine este artigo: crie sua conta grátis ({of['teste']}):")
+    else:
+        add(f"\n📖 {of['gratis'].capitalize()}, e {of['teste']}:")
     add(link(f, "youtube_descricao"))
     add(f"\n{tags} #shorts\n```\n")
     add("**Comentário fixado:**\n```")
@@ -81,7 +88,8 @@ def gerar(f):
     add("**Legenda:**\n```")
     add(p.get("legenda_instagram", "").strip())
     if dm:
-        add(f"\nComenta {dm} que eu te mando o link do artigo 📩")
+        alvo = "o link pra treinar esse artigo" if f.get("objetivo") == "cadastro" else "o link do artigo"
+        add(f"\nComenta {dm} que eu te mando {alvo} 📩")
     else:
         add("\nLink na bio.")
     add(f"\n{tags}\n```\n")

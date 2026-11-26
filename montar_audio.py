@@ -32,10 +32,12 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
+from loudness import normalizar
+
 BASE = Path(__file__).parent
 ap = argparse.ArgumentParser(description="Monta o áudio e o timing.json de um episódio.")
 ap.add_argument("episodio", help="pasta do episódio (videos/short-epNN-tema) ou só 'epNN'")
-ap.add_argument("--variante", default="A", choices=["A", "B"], help="B usa narracao/p1b.wav e p1b.txt como gancho")
+ap.add_argument("--variante", default="A", help="B, C…: usa narracao/p1b.wav (p1c.wav…) como gancho")
 ap.add_argument("--destino", type=Path, help="pasta da animação para onde copiar timing.json e audio/")
 ARGS = ap.parse_args()
 
@@ -61,9 +63,9 @@ N = CFG["falas"]
 
 
 def arquivo_fala(n, ext):
-    """Fala n; na variante B, a fala 1 (o gancho) vem de p1b."""
-    if n == 1 and ARGS.variante == "B":
-        return NARR / f"p1b.{ext}"
+    """Fala n; nas variantes B, C…, a fala 1 (o gancho) vem de p1b, p1c…"""
+    if n == 1 and ARGS.variante != "A":
+        return NARR / f"p1{ARGS.variante.lower()}.{ext}"
     return NARR / f"p{n}.{ext}"
 
 
@@ -411,8 +413,7 @@ def exportar(nome, partes):
     mix = sum(partes)[:total]
     with tempfile.NamedTemporaryFile(suffix=".wav") as tmp:
         sf.write(tmp.name, mix / max(1.0, np.abs(mix).max()), SR)
-        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", tmp.name, "-af",
-                        "loudnorm=I=-14:TP=-1.5:LRA=9", "-ar", str(SR), str(SAIDA / nome)], check=True)
+        normalizar(tmp.name, SAIDA / nome, SR)  # duas passadas (loudness.py)
 
 
 exportar("voz.wav", [voz_pp])  # só a voz tratada (para conferir a voz sem efeitos e trilha)

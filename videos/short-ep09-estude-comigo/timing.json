@@ -1,0 +1,42 @@
+{
+ "duration": 30.0,
+ "scenes": {
+  "abre": {
+   "start": 0.0,
+   "end": 6.0
+  },
+  "grifa": {
+   "start": 6.0,
+   "end": 12.0
+  },
+  "flashcard": {
+   "start": 12.0,
+   "end": 18.0
+  },
+  "testa": {
+   "start": 18.0,
+   "end": 26.0
+  },
+  "fim": {
+   "start": 26.0,
+   "end": 30.0
+  }
+ },
+ "cues": {
+  "sel1": 7.0,
+  "barra1": 8.0,
+  "cor1": 9.0,
+  "sel2": 10.0,
+  "cor2": 11.0,
+  "botaoFlash": 12.5,
+  "ocultar": 14.0,
+  "criar": 16.0,
+  "mostrar": 20.0,
+  "revela": 20.5,
+  "bom": 22.5,
+  "volta": 23.0
+ },
+ "textos": [],
+ "chunks": [],
+ "words": []
+}

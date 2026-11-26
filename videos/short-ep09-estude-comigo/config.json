@@ -1,0 +1,168 @@
+{
+  "titulo": "Estude comigo: 30 s de lei seca (CF, art. 5º, LXVIII e LXIX)",
+  "ficha": "producao/episodios/ep09.json",
+  "animacao": "ep09",
+  "sem_narracao": true,
+  "capa_t": 1.0,
+  "duracao": 30,
+  "bpm": 120,
+  "cenas": [
+    [
+      "abre",
+      0
+    ],
+    [
+      "grifa",
+      6.0
+    ],
+    [
+      "flashcard",
+      12.0
+    ],
+    [
+      "testa",
+      18.0
+    ],
+    [
+      "fim",
+      26.0
+    ]
+  ],
+  "cues": {
+    "sel1": 7.0,
+    "barra1": 8.0,
+    "cor1": 9.0,
+    "sel2": 10.0,
+    "cor2": 11.0,
+    "botaoFlash": 12.5,
+    "ocultar": 14.0,
+    "criar": 16.0,
+    "mostrar": 20.0,
+    "revela": 20.5,
+    "bom": 22.5,
+    "volta": 23.0
+  },
+  "sfx": [
+    [
+      "impacto",
+      "cena:abre",
+      0,
+      0.5
+    ],
+    [
+      "pop",
+      "cena:abre",
+      0.9,
+      0.7
+    ],
+    [
+      "pop",
+      "cena:grifa",
+      0.2,
+      0.7
+    ],
+    [
+      "marca",
+      "cue:sel1",
+      0,
+      0.9
+    ],
+    [
+      "pop",
+      "cue:barra1",
+      0,
+      0.6
+    ],
+    [
+      "click",
+      "cue:cor1",
+      0,
+      0.9
+    ],
+    [
+      "marca",
+      "cue:sel2",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:cor2",
+      0,
+      0.9
+    ],
+    [
+      "pop",
+      "cena:flashcard",
+      0.2,
+      0.7
+    ],
+    [
+      "click",
+      "cue:botaoFlash",
+      0,
+      0.9
+    ],
+    [
+      "pop",
+      "cue:botaoFlash",
+      0.15,
+      0.6
+    ],
+    [
+      "click",
+      "cue:ocultar",
+      0,
+      0.9
+    ],
+    [
+      "click",
+      "cue:criar",
+      0,
+      1.0
+    ],
+    [
+      "acerto",
+      "cue:criar",
+      0.1,
+      0.7
+    ],
+    [
+      "pop",
+      "cena:testa",
+      0.2,
+      0.7
+    ],
+    [
+      "click",
+      "cue:mostrar",
+      0,
+      0.9
+    ],
+    [
+      "brilho",
+      "cue:revela",
+      0,
+      0.5
+    ],
+    [
+      "click",
+      "cue:bom",
+      0,
+      1.0
+    ],
+    [
+      "confete",
+      "cue:bom",
+      0.05,
+      1.0
+    ],
+    [
+      "confete",
+      "cena:fim",
+      0.3,
+      0.6
+    ]
+  ],
+  "estilo": "energetico"
+}
