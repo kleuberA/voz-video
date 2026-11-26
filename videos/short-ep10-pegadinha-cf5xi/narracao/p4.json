@@ -1,0 +1,14 @@
+{
+  "motor": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "referencia": "referencias/cv_131_longa.wav",
+  "variante": "A",
+  "geracao": "roteiro inteiro de uma vez, cortado nas falas pelo alinhamento",
+  "verificacao": {
+    "erro_fala": 0.0,
+    "erro_roteiro": 0.025,
+    "ouvido": "Com ordem judicial só durante o dia. Sem o consentimento do morador, a qualquer hora, só em flagrante, desastre ou para prestar socorro.",
+    "maior_pausa_s": 0.44,
+    "tom_st": 2.96,
+    "ppm": 179
+  }
+}
