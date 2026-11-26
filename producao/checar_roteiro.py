@@ -15,7 +15,7 @@ Avisa (não bloqueia) sobre ritmo e pronúncia: gancho longo, vídeo fora de 20�
 longa demais, frase com mais de 20 palavras, número em algarismo, sigla e as palavras que a voz já
 errou (pronuncia.json).
 
-Com --gerar-falas, grava p1.txt (gancho A), p1b.txt (gancho B), p2.txt… e roteiro.txt, prontos
+Com --gerar-falas, grava p1.txt (gancho A), p1b.txt/p1c.txt… (ganchos B, C…), p2.txt… e roteiro.txt, prontos
 para gerar_clonada.py. Só grava se não houver bloqueio.
 """
 import argparse, json, re, sys
@@ -236,14 +236,17 @@ def checar(f):
 
 def gerar_falas(f, destino):
     destino.mkdir(parents=True, exist_ok=True)
-    a, b = f["ganchos"][0]["fala"], f["ganchos"][1]["fala"]
+    a = f["ganchos"][0]["fala"]
     (destino / "p1.txt").write_text(a + "\n", encoding="utf-8")
-    (destino / "p1b.txt").write_text(b + "\n", encoding="utf-8")
+    # ganchos extras: B → p1b.txt, C → p1c.txt …
+    for g in f["ganchos"][1:]:
+        (destino / f"p1{g['id'].lower()}.txt").write_text(g["fala"] + "\n", encoding="utf-8")
     textos = f["falas"] + [f["cta"]["fala"]]
     for i, t in enumerate(textos, 2):
         (destino / f"p{i}.txt").write_text(t + "\n", encoding="utf-8")
     (destino / "roteiro.txt").write_text("\n\n".join([a] + textos) + "\n", encoding="utf-8")
-    print(f"Falas gravadas em {destino}: p1 (gancho A), p1b (gancho B), p2…p{len(textos) + 1}.")
+    extras = ", ".join(f"p1{g['id'].lower()} (gancho {g['id']})" for g in f["ganchos"][1:])
+    print(f"Falas gravadas em {destino}: p1 (gancho A), {extras}, p2…p{len(textos) + 1}.")
 
 
 if __name__ == "__main__":

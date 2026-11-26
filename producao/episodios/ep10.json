@@ -1,0 +1,103 @@
+{
+  "_sobre": "Teste de oferta (plano do usuário, 26/11/2026): o vídeo não vende a assinatura, só leva a criar a conta grátis de 7 dias. Narrado com a voz padrão (h), a pedido do usuário. Texto da CF copiado do Planalto em 2026-11-22; fonte pendente de conferência humana.",
+  "id": "ep10",
+  "titulo_interno": "Pegadinha da CF, art. 5º, XI: ordem judicial só durante o dia",
+  "formato": "pegadinha",
+  "campanha": "pegadinha_cf5xi",
+  "objetivo": "cadastro",
+  "duracao_s": 30,
+  "pergunta_do_teste": "Quem estuda para concurso clica para treinar pegadinhas da lei seca?",
+  "problema": "O concurseiro decora que a casa é inviolável, mas esquece que a ordem judicial só vale durante o dia. A banca troca 'durante o dia' por 'a qualquer hora'.",
+  "ganchos": [
+    {
+      "id": "A",
+      "fala": "Você erraria essa pegadinha da Constituição?",
+      "tela": "Você erraria essa *pegadinha da CF*?"
+    },
+    {
+      "id": "B",
+      "fala": "A banca trocou uma palavra. Você perceberia?",
+      "tela": "A banca trocou *UMA palavra*. Você perceberia?"
+    },
+    {
+      "id": "C",
+      "fala": "Polícia entra à noite com ordem judicial?",
+      "tela": "Polícia entra *à noite* com ordem judicial?"
+    }
+  ],
+  "ajustes_ao_plano": [
+    "'9 em cada 10 erram' e 'derrubou candidato da PF' trocados: número e fato que não temos como comprovar.",
+    "Selo 'CEBRASPE' trocado por 'Questão adaptada · Certo ou errado?': o item não é de uma prova específica.",
+    "'Tem mais 300 dessas' trocado por 'tem muito mais dessas': não sabemos o número exato.",
+    "'A qualquer hora: só flagrante, desastre ou socorro' completado com 'sem consentimento' (o XI também permite a entrada com consentimento do morador).",
+    "Tela do app mostra a questão que o treino realmente gera para o art. 5º, XI ('inviolável' → 'violável'); o gerador não troca 'durante o dia'."
+  ],
+  "item": "A casa é asilo inviolável do indivíduo, mas nela se pode penetrar, a qualquer hora, por determinação judicial.",
+  "letreiros": [
+    "Julgue o item:",
+    "Comenta antes de ver 👇",
+    "ERRADO.",
+    "Ordem judicial: só DURANTE O DIA.",
+    "Sem consentimento, a qualquer hora:",
+    "só flagrante, desastre ou socorro.",
+    "A banca troca UMA palavra.",
+    "Treine isso todo dia.",
+    "Treine as pegadinhas da sua lei",
+    "grátis → link no perfil"
+  ],
+  "questao": {
+    "origem": "adaptada",
+    "banca": "",
+    "ano": "",
+    "cargo": "",
+    "fonte_url": "",
+    "nota": "Item no estilo certo/errado escrito sobre o art. 5º, XI; não é de uma prova específica."
+  },
+  "fontes": [
+    {
+      "norma": "Constituição Federal de 1988",
+      "dispositivo": "art. 5º, XI",
+      "url": "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm",
+      "texto_literal": "XI - a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, salvo em caso de flagrante delito ou desastre, ou para prestar socorro, ou, durante o dia, por determinação judicial;",
+      "sustenta": "item (errado), explicação e a questão do treino (inviolável → violável)",
+      "copiado_em": "2026-11-22",
+      "conferido_por": "",
+      "conferido_em": ""
+    }
+  ],
+  "fidelidade_app": [
+    "Treino de literalidade (app/biblioteca/[id]/literal-training.tsx): 'Questão 1 de N', selo da categoria 'Pegadinha de palavra', 'Certo ou errado, segundo a letra da lei?', botões Certo/Errado e o retorno 'Acertou. A lei diz “inviolável”, não “violável”.'",
+    "A troca inviolável → violável é do grupo 'pegadinha' do gerador (lib/literalidade/generate.ts). Recriação da interface: o app não roda neste ambiente."
+  ],
+  "link": {},
+  "publicacao": {
+    "titulo_youtube": "Polícia entra à noite com ordem judicial? (CF, art. 5º, XI)",
+    "titulos_alternativos": [
+      "Pegadinha da CF: casa inviolável (Art. 5º, XI) #concursos",
+      "A banca trocou UMA palavra. Você perceberia? (Art. 5º, XI)"
+    ],
+    "descricao": "A banca troca uma palavra e você perde o ponto.\n\nCF, art. 5º, XI: com ordem judicial, só DURANTE O DIA. Sem consentimento do morador, a qualquer hora, só em flagrante, desastre ou para prestar socorro.\n\nTreine a lei seca no Estuda Leges: 7 dias grátis, sem cartão.",
+    "comentario_fixado": "Acertou? Comenta CERTO ou ERRADO 👇 Tem muito mais dessas no link do perfil.",
+    "legenda_instagram": "Certo ou errado? 🤔 A banca troca uma palavra e você perde o ponto.\n\nTreine a lei seca no Estuda Leges: 7 dias grátis, sem cartão.",
+    "palavra_dm": "TREINO",
+    "hashtags": [
+      "#concursos",
+      "#leiseca",
+      "#cebraspe",
+      "#oab",
+      "#direitoconstitucional"
+    ],
+    "enquete_story": "Polícia entra à noite com ordem judicial? (Sim / Não)",
+    "melhor_horario": "3 dias seguidos, um gancho por dia (A, B, C), entre 19h e 22h; avaliar só depois de 7 dias"
+  },
+  "falas": [
+    "Julgue o item. A casa é asilo inviolável do indivíduo, mas nela se pode penetrar, a qualquer hora, por determinação judicial. Comenta antes de ver.",
+    "Errado!",
+    "Com ordem judicial, só durante o dia. Sem o consentimento do morador, a qualquer hora, só em flagrante, desastre ou para prestar socorro.",
+    "A banca troca uma palavra. Por isso, treine isso todo dia."
+  ],
+  "cta": {
+    "fala": "Link no perfil: treine as pegadinhas da sua lei, grátis, no Estuda Leges.",
+    "tela": "Treine as pegadinhas da sua lei grátis → link no perfil"
+  }
+}

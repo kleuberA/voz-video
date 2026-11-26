@@ -11,7 +11,7 @@ referência dos episódios #1–#7), escolhida de ouvido depois do #8. Outra voz
 Diferença para o gerar_clonada.py: o roteiro inteiro é gerado DE UMA VEZ (a entonação de uma frase
 prepara a seguinte, sem as "travadas" de gerar fala por fala) e depois cortado nas falas pelo
 alinhamento das palavras (Whisper). Saída igual à de antes, então o montar_audio.py não muda:
-narracao/p1.wav … pN.wav (variante B: só p1b.wav) e pN.json com a verificação.
+narracao/p1.wav … pN.wav (variantes B, C…: só p1b.wav, p1c.wav…) e pN.json com a verificação.
 
 Cada tentativa é conferida: palavras (Whisper), maior pausa interna, variação de tom e ritmo. Fica a
 melhor; se nenhuma passar, a melhor sai com aviso ⚠. Ambiente: .venv-qwen (Python 3.12).
@@ -22,7 +22,7 @@ from pathlib import Path
 BASE = Path(__file__).parent
 ap = argparse.ArgumentParser()
 ap.add_argument("narracao", type=Path, help="pasta com p1.txt … pN.txt (e p1b.txt)")
-ap.add_argument("--variante", choices=["A", "B"], default="A")
+ap.add_argument("--variante", default="A", help="A, B, C…: o gancho vem de p1.txt (A) ou p1<letra>.txt")
 ap.add_argument("--ref", default=str(BASE / "referencias" / "cv_131_longa.wav"))
 ap.add_argument("--modelo", default="Qwen/Qwen3-TTS-12Hz-1.7B-Base")
 ap.add_argument("--tentativas", type=int, default=3)
@@ -40,8 +40,9 @@ from verificador import IGUAIS, NUM  # noqa: E402
 pasta = a.narracao
 arquivos = sorted((p for p in pasta.glob("p*.txt") if re.fullmatch(r"p\d+", p.stem)), key=lambda p: int(p.stem[1:]))
 falas = [p.read_text(encoding="utf-8").strip() for p in arquivos]
-if a.variante == "B":
-    falas[0] = (pasta / "p1b.txt").read_text(encoding="utf-8").strip()
+GANCHO = "p1" if a.variante == "A" else f"p1{a.variante.lower()}"
+if a.variante != "A":
+    falas[0] = (pasta / f"{GANCHO}.txt").read_text(encoding="utf-8").strip()
 texto = " ".join(falas)
 contagem = [len(f.split()) for f in falas]
 
@@ -132,7 +133,7 @@ cortes.append(len(y))
 saidas = range(len(falas)) if a.variante == "A" else [0]
 for n in saidas:
     trecho = y[cortes[n]:cortes[n + 1]]
-    nome = f"p{n + 1}" if not (a.variante == "B" and n == 0) else "p1b"
+    nome = GANCHO if n == 0 else f"p{n + 1}"
     sf.write(pasta / f"{nome}.wav", trecho, sr)
     ouvido = " ".join(w for w, s0, _ in ouvidas if cortes[n] / sr - 0.05 <= s0 < cortes[n + 1] / sr)
     e_fala = jiwer.wer(norm(falas[n]), norm(ouvido)) if ouvido else 1.0

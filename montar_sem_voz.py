@@ -111,7 +111,13 @@ def confete():
     return out + rng.standard_normal(len(out)) * env(len(out) / SR, 0.005, 0.25) * 0.03 * (np.sin(2 * np.pi * 30 * x) > 0)
 
 
-SONS = {"click": click, "whoosh": whoosh, "marca": marca, "acerto": lambda: chime((659.3, 987.8)), "brilho": chime,
+def tick(freq=1500):
+    """Tique de relógio (contagem)."""
+    x = tt(0.09)
+    return np.sin(2 * np.pi * freq * x) * env(0.09, 0.001, 0.018) * 0.5
+
+
+SONS = {"tick": tick, "click": click, "whoosh": whoosh, "marca": marca, "acerto": lambda: chime((659.3, 987.8)), "brilho": chime,
         "pop": pop_, "impacto": impacto, "riser": riser, "confete": confete}
 
 cues = {k: float(v) for k, v in CFG.get("cues", {}).items()}
@@ -121,7 +127,11 @@ cenas = {c: {"start": round(s, 3), "end": round(inicios[i + 1][1] if i + 1 < len
 sfx = np.zeros(int(DUR * SR) + SR, np.float32)
 for tipo, alvo, desloc, ganho in CFG.get("sfx", []):
     t_alvo = cues[alvo.split(":")[1]] if alvo.startswith("cue:") else cenas[alvo.split(":")[1]]["start"]
-    som = pluck(float(tipo.split(":")[1])) if tipo.startswith("pluck:") else SONS[tipo]()
+    if ":" in tipo:  # pluck:880, tick:2000 (frequência)
+        nome, freq = tipo.split(":")
+        som = (pluck if nome == "pluck" else SONS[nome])(float(freq))
+    else:
+        som = SONS[tipo]()
     a = int(max(0, t_alvo + desloc) * SR)
     b = min(len(sfx), a + len(som))
     sfx[a:b] += som[: b - a].astype(np.float32) * ganho
